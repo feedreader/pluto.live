@@ -21,18 +21,16 @@ end
 desc 'pluto - setup/update feed subscriptions'
 task :setup => :env do
 
-  require './setup'
-  
+  require './seeds'
+
   puts 'Done.'
 end
 
 
 desc 'pluto - update planet (feeds)'
 task :update => :env do
-  
-  updater = Pluto::Updater.new
-  updater.update_feeds
+
+  Pluto.update_feeds
   
   puts 'Done.'
 end
-

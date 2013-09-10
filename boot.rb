@@ -8,10 +8,13 @@ Bundler.setup
 Bundler.require(:default, ENV['RACK_ENV'].to_sym)
 
 
-# load server   (before connect? - include in boot.rb - why not?? )
+# 3rd party libs/gems
 
-require 'pluto/server'
+require 'sinatra/base'    # todo/checkfix  - move to Gemfile  use gem sinatra w/-> require or similar
 
+# planet app
+
+require './planet'
 
 #######
 # todo - move boot.rb  to config/boot.rb - why? why not?
