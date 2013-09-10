@@ -1,0 +1,14 @@
+
+############
+# ignore sqlite dbs (e.g. pluto.db etc.)
+
+*.db
+
+##################
+# .bundle
+
+.bundle
+.bundle/
+.bundle/config
+
+
