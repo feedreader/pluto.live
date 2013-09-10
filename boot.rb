@@ -8,10 +8,6 @@ Bundler.setup
 Bundler.require(:default, ENV['RACK_ENV'].to_sym)
 
 
-# 3rd party libs/gems
-
-require 'sinatra/base'    # todo/checkfix  - move to Gemfile  use gem sinatra w/-> require or similar
-
 # planet app
 
 require './planet'
