@@ -10,17 +10,17 @@ class Planet < Sinatra::Base
     File.expand_path(File.dirname(__FILE__))
   end
 
-  set :public_folder, "#{Planet.root}/public"       # set up the static dir (with images/js/css inside)
-  set :views,         "#{Planet.root}/templates"    # set up the views dir
+  set :public_folder, "#{Planet.root}/public"     # set up static dir (w/ images/js/css etc.)
+  set :views,         "#{Planet.root}/templates"  # set up views dir
 
   set :static, true   # set up static file routing
 
-  ###################
+  ##########
   # Models
   
   include Pluto::Models   # e.g. Feed, Item, Site, etc.
 
-  ##############################################
+  ############################################
   # Controllers / Routing / Request Handlers
 
   get '/' do
@@ -54,7 +54,7 @@ Note, use the `--without production` option for local development
 unless you want to install the PostgreSQL (pg) database libraries
 and services (required for production on the Heroku hosting service.)
 
-Setup the database and feed subscriptions:
+Setup the database and planet feed subscriptions:
 
     $ rake setup_ruby
 
@@ -97,7 +97,7 @@ And promote HEROKU_POSTGRESQL_<YOUR_COLOR_HERE>_URL to DATABASE_URL:
 
     $ heroku pg:promote HEROKU_POSTGRESQL_<YOUR_COLOR_HERE>_URL
 
-Create DB on first upload via
+Create database andd add planet feed subscriptions on first upload via
 
     $ heroku run rake setup_ruby
 
