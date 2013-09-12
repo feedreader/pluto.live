@@ -1,6 +1,35 @@
 # pluto.live
 
-Example planet site using the [pluto gem](https://github/com/geraldb/pluto).
+Example planet site - a Sinatra web app in Ruby
+using the [pluto gem](https://github.com/geraldb/pluto).
+
+~~~
+class Planet < Sinatra::Base
+  
+  def self.root
+    File.expand_path(File.dirname(__FILE__))
+  end
+
+  set :public_folder, "#{Planet.root}/public"       # set up the static dir (with images/js/css inside)
+  set :views,         "#{Planet.root}/templates"    # set up the views dir
+
+  set :static, true   # set up static file routing
+
+  ###################
+  # Models
+  
+  include Pluto::Models   # e.g. Feed, Item, Site, etc.
+
+  ##############################################
+  # Controllers / Routing / Request Handlers
+
+  get '/' do
+    erb :index
+  end
+
+end
+~~~
+
 
 ## Demos
 
@@ -10,7 +39,7 @@ or the [Planet vienna.rb](http://viennarb.herokuapp.com) running on Heroku.
 
 ## Setup
 
-### Setup a planet site on your local machine
+### Setup on your local machine
 
 Clone the pluto.live git repo:
 
@@ -41,7 +70,7 @@ That's it.
 
 
 
-### Setup a planet site on Heroku
+### Setup on Heroku
 
 Clone the pluto.live git repo:
 
