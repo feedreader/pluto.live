@@ -1,7 +1,87 @@
 # pluto.live
 
-Example planet site using the pluto gem.
+Example planet site using the [pluto gem](https://github/com/geraldb/pluto).
 
+## Demos
+
+See the [Planet Ruby](http://plutolive.herokuapp.com)
+or the [Planet vienna.rb](http://viennarb.herokuapp.com) running on Heroku.
+
+
+## Setup
+
+### Setup a planet site on your local machine
+
+Clone the pluto.live git repo:
+
+    $ git clone git://github.com/geraldb/pluto.live.git
+
+Get all your Ruby libraries (gems) installed using the bundler tool:
+
+    $ cd pluto.live
+    $ bundle install --without production
+
+Note, use the `--without production` option for local development
+unless you want to install the PostgreSQL (pg) database libraries
+and services (required for production on the Heroku hosting service.)
+
+Setup the database and feed subscriptions:
+
+    $ rake setup_ruby
+
+Update your planet feeds:
+
+    $ rake update
+
+Showtime! Startup the server:
+
+    $ rackup
+
+That's it.
+
+
+
+### Setup a planet site on Heroku
+
+Clone the pluto.live git repo:
+
+    $ git clone git://github.com/geraldb/pluto.live.git
+
+Create app on Heroku e.g.
+
+    $ cd pluto.live
+    $ heroku create <YOUR_APP_NAME_HERE>
+
+Upload via
+
+    $ git push heroku master
+
+Add the PostgreSQL addon
+
+    $ heroku addons:add heroku-postgresql:dev
+
+Establish primary database (that is, set DATABASE_URL). Find your POSTGRESQL_URL:
+
+    $ heroku config | grep HEROKU_POSTGRESQL
+
+And promote HEROKU_POSTGRESQL_<YOUR_COLOR_HERE>_URL to DATABASE_URL: 
+
+    $ heroku pg:promote HEROKU_POSTGRESQL_<YOUR_COLOR_HERE>_URL
+
+Create DB on first upload via
+
+    $ heroku run rake setup_ruby
+
+Update feeds
+
+    $ heroku run rake update
+
+Showtime! That's it.
+
+
+Bonus:
+
+Add a scheduler job to update feeds via `rake update` hourly, daily, etc. 
 
 
 ## License
