@@ -1,6 +1,6 @@
 ######################
 # Note:
-#  use   rake setup    - to call/run/load planet config
+#  use   rake setup_ruby    - to call/run/load planet config
 
 
 # load (setup) planet config

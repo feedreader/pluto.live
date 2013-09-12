@@ -22,20 +22,20 @@ class Planet < Sinatra::Base
   # Controllers / Routing / Request Handlers
 
   get '/' do
-    erb :index, locals: { site: site_config_hash }
+    erb :index, locals: { site: find_planet_site }
   end
 
 
   #################
-  # Utilities 
+  # Utilities
 
-  def site_config_hash
-    h = {}
+  def find_planet_site
     site = Site.first      # FIX: for now assume one planet per DB (fix later; allow planet key or similar)
     if site.present?
-      h['title']  = site.title
+      site
     else
-      h['title']  = 'Planet Untitled'
+      site = Site.new
+      site.title = 'Planet Untitled'
     end
   end
 

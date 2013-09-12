@@ -5,4 +5,12 @@ require './boot'
 
 Pluto.connect!   # try connect w/ DATABASE_URL
 
-run Planet
+map '/' do
+
+  run Planet
+
+  map '/db' do
+    run Pluto::Server
+  end
+
+end

@@ -8,9 +8,14 @@ Bundler.setup
 Bundler.require(:default, ENV['RACK_ENV'].to_sym)
 
 
+# pluto admin server app
+
+require 'pluto/server'
+
 # planet app
 
 require './planet'
+
 
 #######
 # todo - move boot.rb  to config/boot.rb - why? why not?

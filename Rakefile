@@ -7,6 +7,17 @@ task :env  do
   Pluto.connect!
 end
 
+desc 'pluto - debug site setup'
+task :site => :env do
+  site = Pluto::Models::Site.first      # FIX: for now assume one planet per DB (fix later; allow planet key or similar)
+  if site.present?
+    puts "site found:"
+    pp site
+  else
+    puts "no site found"
+  end
+end
+
 
 desc 'pluto - show planet (feed) stats'
 task :stats => :env do
@@ -18,10 +29,19 @@ task :stats => :env do
 end
 
 
-desc 'pluto - setup/update feed subscriptions'
-task :setup => :env do
+desc 'pluto - ruby.yml -=- setup/update feed subscriptions'
+task :setup_ruby => :env do
 
-  require './seeds'
+  require './ruby.seeds'
+
+  puts 'Done.'
+end
+
+
+desc 'pluto - viennarb.yml -=- setup/update feed subscriptions'
+task :setup_viennarb => :env do
+
+  require './viennarb.seeds'
 
   puts 'Done.'
 end
