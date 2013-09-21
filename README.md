@@ -1,20 +1,11 @@
 # pluto.live
 
 Example planet site - a Sinatra web app in Ruby
-using the [pluto gem](https://github.com/geraldb/pluto).
+using the [pluto gem](https://github.com/feedreader/pluto).
 
 ~~~
 class Planet < Sinatra::Base
   
-  def self.root
-    File.expand_path(File.dirname(__FILE__))
-  end
-
-  set :public_folder, "#{Planet.root}/public"     # set up static dir (w/ images/js/css etc.)
-  set :views,         "#{Planet.root}/templates"  # set up views dir
-
-  set :static, true   # set up static file routing
-
   ##########
   # Models
   
@@ -43,7 +34,7 @@ or the [Planet vienna.rb](http://viennarb.herokuapp.com) running on Heroku.
 
 Clone the pluto.live git repo:
 
-    $ git clone git://github.com/geraldb/pluto.live.git
+    $ git clone git://github.com/feedreader/pluto.live.git
 
 Get all your Ruby libraries (gems) installed using the bundler tool:
 
@@ -74,7 +65,7 @@ That's it.
 
 Clone the pluto.live git repo:
 
-    $ git clone git://github.com/geraldb/pluto.live.git
+    $ git clone git://github.com/feedreader/pluto.live.git
 
 Create app on Heroku e.g.
 

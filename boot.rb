@@ -10,7 +10,7 @@ Bundler.require(:default, ENV['RACK_ENV'].to_sym)
 
 # pluto admin server app
 
-require 'pluto/server'
+require 'pluto/admin/server'
 
 # planet app
 

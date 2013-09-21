@@ -10,7 +10,7 @@ map '/' do
   run Planet
 
   map '/db' do
-    run Pluto::Server
+    run PlutoAdmin::Server
   end
 
 end

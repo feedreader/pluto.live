@@ -1,16 +1,6 @@
 
 
 class Planet < Sinatra::Base
-  
-  def self.root
-    File.expand_path(File.dirname(__FILE__))
-  end
-
-  set :public_folder, "#{Planet.root}/public"       # set up the static dir (with images/js/css inside)   
-  set :views,         "#{Planet.root}/templates"    # set up the views dir
-
-  set :static, true   # set up static file routing
-
 
   #######################
   # Models

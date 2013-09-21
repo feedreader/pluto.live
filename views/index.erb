@@ -32,9 +32,9 @@
 </h2>
 
 <div class='item_content'>
-<%= item.content %>
+<%= item.summary %>
 </div>
-</div> 
+</div>
 <!--
 <p>
    <%= item.published_at.strftime('%H:%M') %>
@@ -51,7 +51,10 @@
     <p>
       Last Updated
     </p>
-    <p class='smaller'><%= Time.now.strftime('%A, %d. %B %Y %H:%M') %>
+    <p class='smaller'>
+      <% if site.fetched_at %>
+        <%= site.fetched_at.strftime('%A, %d. %B %Y %H:%M') %>
+      <% end %>
     </p>
 
     <p>Subscriptions</p>
