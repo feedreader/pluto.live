@@ -1,29 +1,103 @@
 title: Planet Ruby
 
-feeds:
-  - rubyflow
-  - rubysource
-  - afreshcup
-  - edgerails
-  - rubyonrails
-  - railstutorial
-  - railscasts
-  - rubynews
-  - railstips
-  - rubymine
-  - beerdb
-  - sportdb
-  - slideshow
+
+###################
+# Ruby People
+
+
+
+zenspider:
+  title: Polishing Ruby by Ryan Davis
+  feed_url: http://blog.zenspider.com/atom.xml 
+  url: http://blog.zenspider.com
+
+akitaonrails:
+  title: AkitaOnRails by Fabio Akita
+  feed_url: http://feeds.feedburner.com/AkitaOnRailsEnglish?format=xml
+  url: http://www.akitaonrails.com
+
+rkh:
+  title: Konstantin Haase
+  feed_url: http://feeds.feedburner.com/rkh?format=xml
+  url: http://rkh.im
+
+pragdave:
+  title: Pragmatic Programmer by Dave Thomas
+  feed_url: http://pragdave.blogs.pragprog.com/pragdave/atom.xml
+  url: http://pragdave.pragprog.com
+
+headius:
+  title: Charles Nutter
+  feed_url: http://blog.headius.com/feeds/posts/default
+  url: http://blog.headius.com
+
+tenderlove:
+  title: Aaron Patterson
+  feed_url: http://tenderlovemaking.com/atom.xml
+  url: http://tenderlovemaking.com
+
+railstips:
+  title: Rails Tips by John Nunemaker
+  feed_url: http://feeds.feedburner.com/railstips
+  url: http://railstips.org
+
+marcandre:
+  title: Marc-André Lafortune
+  feed_url: http://blog.marc-andre.ca/atom.xml
+  url: http://blog.marc-andre.ca
+
+patshaughnessy:
+  title: Pat Shaughnessy
+  feed_url: http://feeds.feedburner.com/patshaughnessy?format=xml
+  url: http://patshaughnessy.net
+
+
+#############
+# Ruby Gems
+
+rubynews:
+  title: Ruby News
+  feed_url: http://www.ruby-lang.org/en/feeds/news.rss
+  url: http://www.ruby-lang.org/en/news
+
+jruby:
+  title: JRuby News
+  feed_url: http://www.jruby.org/atom.xml
+  url: http://www.jruby.org
+
+rubygems:
+  title: RubyGems News
+  feed_url: http://blog.rubygems.org/atom.xml
+  url: http://blog.rubygems.org
+
+rubyonrails:
+  title: Ruby on Rails Blog
+  feed_url: http://weblog.rubyonrails.org/feed/atom.xml
+  url: http://weblog.rubyonrails.org
+
+sinatra:
+  title: Sinatra News
+  feed_url: http://sinatra.github.com/feed.xml 
+  url: http://www.sinatrarb.com/blog.html
+
+jekyll:
+  title: Jekyll News
+  feed_url: http://jekyllrb.com/feed.xml
+  url: http://jekyllrb.com/news
+
+rubymine:
+  title: JetBrains RubyMine Blog
+  url: http://blog.jetbrains.com/ruby
+  feed_url: http://feeds.feedburner.com/jetbrains_rubymine?format=xml
+
+
+###################
+# Ruby News, Articles, Links, etc.
 
 rubyflow:
   title: Ruby Flow
   feed_url: http://feeds.feedburner.com/Rubyflow?format=xml
   url: http://rubyflow.com
-
-rubysource:
-  title: Ruby Source
-  feed_url: http://rubysource.com/feed
-  url: http://rubysource.com
 
 afreshcup:
   title: A Fresh Cup by Mike Gunderloy
@@ -35,10 +109,33 @@ edgerails:
   feed_url:  http://www.edgerails.info/blog.atom
   url: http://www.edgerails.info
 
-rubyonrails:
-  title: Ruby on Rails Blog
-  feed_url: http://weblog.rubyonrails.org/feed/atom.xml
-  url: http://weblog.rubyonrails.org
+sitepointruby:
+  title: SitePoint Ruby
+  feed_url: http://www.sitepoint.com/ruby/feed
+  url: http://www.sitepoint.com/ruby
+
+oreillyruby:
+  title: O'Reilly Ruby
+  feed_url: http://feeds.feedburner.com/oreilly/ruby?format=xml
+  url: http://oreilly.com/ruby
+
+###################
+# Ruby Podcast Shows
+
+rubyrogues:
+  title: Ruby Rogues (Podcast Show)
+  feed_url: http://rubyrogues.com/feed/
+  url: http://rubyrogues.com
+
+ruby5:
+  title: Ruby5 (Podcast Show)
+  feed_url: http://feeds.feedburner.com/Ruby5?format=xml
+  url: http://ruby5.envylabs.com
+
+
+
+###################################
+# Ruby Books, Screencasts, etc.
 
 railstutorial:
   title: Rails Tutorial News
@@ -50,20 +147,47 @@ railscasts:
   feed_url: http://feeds.feedburner.com/railscasts
   url: http://railscasts.com
 
-rubynews:
-  title: Ruby News
-  feed_url: http://www.ruby-lang.org/en/feeds/news.rss
-  url: http://www.ruby-lang.org/en/news
 
-railstips:
-  title: Rails Tips by John Nunemaker
-  feed_url: http://feeds.feedburner.com/railstips
-  url: http://railstips.org
+######################
+# Ruby Brigades
 
-rubymine:
-  title: JetBrains RubyMine Blog
-  url: http://blog.jetbrains.com/ruby
-  feed_url: http://feeds.feedburner.com/jetbrains_rubymine?format=xml
+viennarb:
+  title: vienna.rb Blog
+  url: http://vienna-rb.at
+  feed_url: http://vienna-rb.at/atom.xml
+
+viennarbmeetup:
+  title: vienna.rb Meetups
+  url: http://www.meetup.com/vienna-rb
+  feed_url: http://www.meetup.com/vienna-rb/events/rss/vienna.rb/
+  
+# viennarbmeetuprsvps:
+#  title: vienna.rb Meetups RSVPs
+#  url: http://www.meetup.com/vienna-rb
+#  feed_url: http://www.meetup.com/vienna-rb/rsvps/rss/vienna.rb/ 
+
+
+##########################################
+# Ruby Service Companies & Consultants
+
+engineyardruby:
+  title: Engine Yard Ruby
+  feed_url: http://blog.engineyard.com/category/ruby/feed
+  url: http://blog.engineyard.com/category/ruby
+
+noelrappin:
+  title: Rails Test Prescriptions by Noel Rappin
+  feed_url: http://www.noelrappin.com/railsrx/rss.xml
+  url: http://www.noelrappin.com/railsrx
+
+thoughtbot:
+  title: Giant Robots Smashing Into Other Giant Robots
+  feed_url: http://feeds.feedburner.com/GiantRobotsSmashingIntoOtherGiantRobots
+  url: http://robots.thoughtbot.com
+
+
+###################################
+# My Ruby Gems News & Discussion
 
 beerdb:
   title: Open Beer & Brewery Database (beer.db)
@@ -80,3 +204,10 @@ slideshow:
   url: http://groups.google.com/group/webslideshow
   feed_url: https://groups.google.com/forum/feed/webslideshow/topics/atom.xml?num=15
 
+#############################
+# Meta
+
+pluto:
+  title: Planet Pluto News & Discussions
+  url: http://groups.google.com/group/feedreader
+  feed_url: https://groups.google.com/forum/feed/feedreader/topics/atom.xml?num=15

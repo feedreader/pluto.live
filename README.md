@@ -21,8 +21,32 @@ class Planet < Sinatra::Base
 end
 ~~~
 
+Source: [`planet.rb`](planet.rb)
 
-## Demos
+
+Sample template snippet:
+
+~~~
+<div class='item'>
+
+  <h4 class='feed_title'>
+    <%= link_to item.feed.title, item.feed.url %>
+  </h4>
+
+  <h2 class='item_title'>
+   <%= link_to item.title, item.url %>
+  </h2>
+
+  <div class='item_content'>
+   <%= item.summary %>
+  </div>
+</div>
+~~~
+
+Source: [`views/index.erb`](views/index.erb)
+
+
+## Live Demos
 
 See the [Planet Ruby](http://plutolive.herokuapp.com)
 or the [Planet vienna.rb](http://viennarb.herokuapp.com) running on Heroku.
@@ -47,7 +71,7 @@ and services (required for production on the Heroku hosting service.)
 
 Setup the database and planet feed subscriptions:
 
-    $ rake setup_ruby
+    $ rake setup PLANET=ruby
 
 Update your planet feeds:
 
@@ -90,7 +114,7 @@ And promote HEROKU_POSTGRESQL_<YOUR_COLOR_HERE>_URL to DATABASE_URL:
 
 Create database andd add planet feed subscriptions on first upload via
 
-    $ heroku run rake setup_ruby
+    $ heroku run rake setup PLANET=ruby
 
 Update feeds
 
@@ -108,3 +132,9 @@ Add a scheduler job to update feeds via `rake update` hourly, daily, etc.
 
 The `pluto` scripts are dedicated to the public domain.
 Use it as you please with no restrictions whatsoever.
+
+## Questions? Comments?
+
+Questions? Comments?
+Send them along to the [Planet Pluto and Friendss) Forum/Mailing List](http://groups.google.com/group/feedreader).
+Thanks!

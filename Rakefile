@@ -1,6 +1,10 @@
 require './boot'
 
 
+###
+# todo: move tasks to gem and just include Pluto.load_tasks or similar here
+
+
 task :env  do
   LogUtils::Logger.root.level = :debug
 
@@ -29,25 +33,40 @@ task :stats => :env do
 end
 
 
-desc 'pluto - ruby.yml -=- setup/update feed subscriptions'
-task :setup_ruby => :env do
+desc 'pluto -=- setup/update feed subscriptions'
+task :setup => :env do
 
-  require './ruby.seeds'
+  ## check if PLANET key passed in
+  if ENV['PLANET'].present?
+    key = ENV['PLANET']
+    puts "setup planet for key >#{key}<"
+  else
+    puts 'no PLANET=key passed along; try defaults'
+    # try pluto.yml or planet.yml if exist
+
+    if File.exists?( './pluto.yml' ) # check if pluto.yml exists, if yes add/use it
+      key ='pluto'
+    elsif File.exists?( './planet.yml' ) # check if planet.yml exists, if yes add/use it
+      key = 'planet'
+    else
+      puts '*** note: no arg passed in; no pluto.yml or planet.yml found in working folder'
+    end
+  end
+
+  config_path = "./#{key}.yml"
+
+  config = YAML.load_file( config_path )
+      
+  puts "dump planet setup settings >#{config_path}<:"
+  pp config
+
+  Pluto.update_subscriptions( config )
 
   puts 'Done.'
 end
 
 
-desc 'pluto - viennarb.yml -=- setup/update feed subscriptions'
-task :setup_viennarb => :env do
-
-  require './viennarb.seeds'
-
-  puts 'Done.'
-end
-
-
-desc 'pluto - update planet (feeds)'
+desc 'pluto -=- update planet (feeds)'
 task :update => :env do
 
   Pluto.update_feeds

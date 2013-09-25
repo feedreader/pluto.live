@@ -6,7 +6,7 @@ gem 'pluto'
 gem 'pluto-admin'
 
 
-gem 'activerecord'
+gem 'activerecord', '~>3.2.14'    ## fix: remove version
 
 group :production do
   gem 'pg'
