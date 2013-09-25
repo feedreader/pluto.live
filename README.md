@@ -1,6 +1,6 @@
 # pluto.live
 
-Example planet site - a Sinatra web app in Ruby
+Example planet site - a Sinatra web app (starter template) in Ruby
 using the [pluto gem](https://github.com/feedreader/pluto).
 
 ~~~
@@ -21,29 +21,35 @@ class Planet < Sinatra::Base
 end
 ~~~
 
-Source: [`planet.rb`](planet.rb)
+(Source: [`planet.rb`](planet.rb))
 
 
 Sample template snippet:
 
 ~~~
-<div class='item'>
+<h1><%= site.title %></h1>
 
-  <h4 class='feed_title'>
-    <%= link_to item.feed.title, item.feed.url %>
-  </h4>
+<% Item.latest.limit(24).each do |item| %>
 
-  <h2 class='item_title'>
-   <%= link_to item.title, item.url %>
-  </h2>
+  <div class='item'>
 
-  <div class='item_content'>
-   <%= item.summary %>
+    <h4 class='feed_title'>
+      <%= link_to item.feed.title, item.feed.url %>
+    </h4>
+
+    <h2 class='item_title'>
+     <%= link_to item.title, item.url %>
+    </h2>
+
+    <div class='item_content'>
+     <%= item.summary %>
+    </div>
   </div>
-</div>
+
+<% end %>
 ~~~
 
-Source: [`views/index.erb`](views/index.erb)
+(Source: [`views/index.erb`](views/index.erb))
 
 
 ## Live Demos
@@ -136,5 +142,5 @@ Use it as you please with no restrictions whatsoever.
 ## Questions? Comments?
 
 Questions? Comments?
-Send them along to the [Planet Pluto and Friendss) Forum/Mailing List](http://groups.google.com/group/feedreader).
+Send them along to the [Planet Pluto and Friends Forum/Mailing List](http://groups.google.com/group/feedreader).
 Thanks!
