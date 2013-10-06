@@ -1,6 +1,5 @@
 
 <h1>
-
   <a href='<%= root_path %>'><%= site.title %></a> 
      › 
   <a href='<%= feed.url %>'><%= feed.title %></a>
@@ -18,21 +17,23 @@
    ItemCursor.new( items ).each do |item,new_date,new_feed| %>
 
 <% if new_date %>
-<h3>
+<h2 class='new_date'>
   <%= item.published.strftime('%A, %d. %B %Y') %>
-</h3>
-<% end %><!-- if new_day -->
+</h2>
+<% else %>
+  <hr class='item_seperator'>
+<% end %>
 
 <div class='item'>
 
-<h2>
+<h3>
  <a href='<%= item.url %>'><%= item.title %></a>
-</h2>
+</h3>
 
 <div class='item_content'>
   <%= item.summary %>
 </div>
-</div>
+</div><!-- item -->
 
 <!--
 <p>

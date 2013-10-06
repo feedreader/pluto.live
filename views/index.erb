@@ -1,46 +1,7 @@
 
-<h1><%= site.title %></h1>
 
-<table>
-<tr>
-  <td style='vertical-align:top;'><!-- first column -->
-
-<% items = site.items.latest.limit(24)
-   ItemCursor.new( items ).each do |item,new_date,new_feed| %>
-
-<% if new_date %>
-<h3>
-  <%= item.published.strftime('%A, %d. %B %Y') %>
-</h3>
-<% end %><!-- if new_day -->
-
-
-<div class='item'>
-
-<h4 class='feed_title'>
-  <a href='<%= feed_path( item.feed ) %>'><%= item.feed.title %></a>
-</h4>
-
-<h2 class='item_title'>
- <a href='<%= item.url %>'><%= item.title %></a>
-</h2>
-
-<div class='item_content'>
-  <%= item.summary %>
-</div>
-</div>
-
-<!--
-<p>
-   <%= item.published.strftime('%H:%M') %>
-</p>
--->
-
-<% end %><!-- each item -->
-  </td>
-  <td style='vertical-align:top;'><!-- second column -->
-
-    <div class='colright'>
+<div id='navwrap'>
+<div id='nav'>
     <p>
       Last Updated
     </p>
@@ -58,8 +19,47 @@
         <a href='<%= feed_path( feed ) %>'><%= feed.title %></a></li>
      <% end %>
      </ul>
-    </div>
+</div>
+</div>
 
-  </td>
-</tr>
-</table>
+<h1><%= site.title %></h1>
+
+
+<% items = site.items.latest.limit(24)
+   ItemCursor.new( items ).each do |item,new_date,new_feed| %>
+
+<% if new_date %>
+<h2 class='new_date'>
+  <%= item.published.strftime('%A, %d. %B %Y') %>
+</h2>
+<% else %>
+  <hr class='item_seperator'>
+<% end %>
+
+<div class='item'>
+
+<% if new_feed %>
+<h4 class='feed_title'>
+  <a href='<%= feed_path( item.feed ) %>'><%= item.feed.title %></a>
+</h4>
+<% end %>
+
+
+<h3 class='item_title'>
+ <a href='<%= item.url %>'><%= item.title %></a>
+</h3>
+
+<div class='item_content item_summary'>
+  <%= item.summary %>
+</div>
+</div><!-- item -->
+
+<!--
+<p>
+   <%= item.published.strftime('%H:%M') %>
+</p>
+-->
+
+
+<% end %><!-- each item -->
+ 
