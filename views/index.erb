@@ -5,20 +5,14 @@
 <tr>
   <td style='vertical-align:top;'><!-- first column -->
 
-<% last_published_at = Time.local( 1999, 1, 1 )
-   Item.latest.limit(24).each do |item| %>
+<% items = site.items.latest.limit(21)
+   ItemCursor.new( items ).each do |item,new_date,new_feed| %>
 
- <% unless last_published_at.year   == item.published_at.year  &&
-           last_published_at.month  == item.published_at.month &&
-           last_published_at.day    == item.published_at.day      %>
-     
-     
-             
+<% if new_date %>
 <h3>
-  <%= item.published_at.strftime('%A, %d. %B %Y') %>
+  <%= item.published.strftime('%A, %d. %B %Y') %>
 </h3>
-
-<% end %><!-- if new day? -->
+<% end %><!-- if new_day -->
 
 
 <div class='item'>
@@ -32,18 +26,17 @@
 </h2>
 
 <div class='item_content'>
-<%= item.summary %>
+  <%= item.summary %>
 </div>
 </div>
+
 <!--
 <p>
-   <%= item.published_at.strftime('%H:%M') %>
+   <%= item.published.strftime('%H:%M') %>
 </p>
 -->
 
-<% last_published_at = item.published_at
-   end %><!-- each item -->
-  
+<% end %><!-- each item -->
   </td>
   <td style='vertical-align:top;'><!-- second column -->
 
@@ -52,14 +45,14 @@
       Last Updated
     </p>
     <p class='smaller'>
-      <% if site.fetched_at %>
-        <%= site.fetched_at.strftime('%A, %d. %B %Y %H:%M') %>
+      <% if site.fetched %>
+        <%= site.fetched.strftime('%A, %d. %B %Y %H:%M') %>
       <% end %>
     </p>
 
     <p>Subscriptions</p>
     <ul class='subscriptions smaller' >
-     <% Feed.all.each do |feed| %>
+     <% site.feeds.order(:title).each do |feed| %>
       <li>
         <a href='<%= feed.feed_url %>'><img src='feed-icon-10x10.png'></a>         
         <a href='<%= feed.url %>'><%= feed.title %></a></li>

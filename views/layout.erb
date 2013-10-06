@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <meta charset='UTF-8'>
-  <meta name='generator' content='<%= Pluto.banner %>'>
+  <meta charset='utf-8'>
+  <meta name='generator' content='<%= Pluto.generator %>'>
 
   <title><%= site.title %></title>
   
@@ -12,7 +12,7 @@
 
 <%= yield %>
 
-<%= erb :'_version' %>
+<%= erb :'shared/_version' %>
 
 </body>
 </html>

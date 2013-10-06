@@ -29,7 +29,7 @@ Sample template snippet:
 ~~~
 <h1><%= site.title %></h1>
 
-<% Item.latest.limit(24).each do |item| %>
+<% site.items.latest.limit(21).each do |item| %>
 
   <div class='item'>
 
