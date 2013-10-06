@@ -7,9 +7,27 @@ class Planet < Sinatra::Base
   
   include Pluto::Models   # e.g. Feed, Item, Site, etc.
 
+  ###################
+  # Helpers
+
+  def path_prefix
+    request.script_name   # request.env['SCRIPT_NAME']
+  end
+  
+  def feed_path( feed )
+    "#{path_prefix}/feed/#{feed.key}"
+  end
+  
+  def root_path
+    "#{path_prefix}/"
+  end
 
   ##############################################
   # Controllers / Routing / Request Handlers
+
+  get '/feed/:key' do |key|
+    erb :feed, locals: { feed: Feed.find_by_key!( key ), site: find_planet_site }
+  end
 
   get '/' do
     erb :index, locals: { site: find_planet_site }

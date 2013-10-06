@@ -5,7 +5,7 @@
 <tr>
   <td style='vertical-align:top;'><!-- first column -->
 
-<% items = site.items.latest.limit(21)
+<% items = site.items.latest.limit(24)
    ItemCursor.new( items ).each do |item,new_date,new_feed| %>
 
 <% if new_date %>
@@ -18,7 +18,7 @@
 <div class='item'>
 
 <h4 class='feed_title'>
-  <a href='<%= item.feed.url %>'><%= item.feed.title %></a>
+  <a href='<%= feed_path( item.feed ) %>'><%= item.feed.title %></a>
 </h4>
 
 <h2 class='item_title'>
@@ -55,7 +55,7 @@
      <% site.feeds.order(:title).each do |feed| %>
       <li>
         <a href='<%= feed.feed_url %>'><img src='feed-icon-10x10.png'></a>         
-        <a href='<%= feed.url %>'><%= feed.title %></a></li>
+        <a href='<%= feed_path( feed ) %>'><%= feed.title %></a></li>
      <% end %>
      </ul>
     </div>
