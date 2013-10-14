@@ -30,9 +30,14 @@
  <a href='<%= item.url %>'><%= item.title %></a>
 </h3>
 
-<div class='item_content'>
-  <%= item.summary %>
+<div class='item_content item_summary'>
+  <% if item.content %>
+    <%= item.content %>
+  <% else %>
+    <%= item.summary %>
+  <% end %>
 </div>
+
 </div><!-- item -->
 
 <!--

@@ -50,7 +50,11 @@
 </h3>
 
 <div class='item_content item_summary'>
-  <%= item.summary %>
+  <% if item.content %>
+    <%= item.content %>
+  <% else %>
+    <%= item.summary %>
+  <% end %>
 </div>
 </div><!-- item -->
 

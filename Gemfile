@@ -6,6 +6,10 @@ gem 'pluto'
 gem 'pluto-admin'
 
 
+gem 'about'      # mountable app - about - sys info pages
+gem 'dbbrowser'  # mountable app
+
+
 gem 'activerecord', '~>3.2.14'    ## fix: remove version
 
 group :production do
