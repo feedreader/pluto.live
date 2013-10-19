@@ -1,0 +1,76 @@
+body {
+  font-family: sans-serif;
+  background-color: #f4f4f4;
+  color: #333333; }
+
+a {
+  text-decoration: none;
+  color: #333333; }
+  a:hover {
+    text-decoration: underline;
+    color: darkred; }
+
+.small {
+  font-size: 12px;
+  color: grey; }
+
+#opts {
+  float: right;
+  width: 200px;
+  padding-left: 12px;
+  font-size: 12px;
+  color: grey; }
+  #opts a {
+    text-decoration: none;
+    color: grey; }
+    #opts a:hover {
+      text-decoration: underline; }
+  #opts #show-headlines,
+  #opts #show-snippets,
+  #opts #show-fulltext {
+    cursor: pointer; }
+
+.item h4.feed-title {
+  margin-top: 4px;
+  margin-bottom: 4px; }
+.item h3.item-title {
+  margin-top: 4px;
+  margin-bottom: 4px; }
+.item .item-summary,
+.item .item-content {
+  display: none; }
+.item .item-snippet {
+  /* fix/todo: move to scss partial for reuse eg. _snippet.scss or similar */ }
+  .item .item-snippet h1, .item .item-snippet h2, .item .item-snippet h3, .item .item-snippet h4, .item .item-snippet h5, .item .item-snippet h6 {
+    font-size: 100%; }
+  .item .item-snippet b, .item .item-snippet h1, .item .item-snippet h2, .item .item-snippet h3, .item .item-snippet h4, .item .item-snippet h5, .item .item-snippet h6 {
+    font-weight: normal; }
+  .item .item-snippet p, .item .item-snippet ul, .item .item-snippet ol, .item .item-snippet h1, .item .item-snippet h2, .item .item-snippet h3, .item .item-snippet h4, .item .item-snippet h5, .item .item-snippet h6 {
+    margin: 2px 0px 2px 0px; }
+  .item .item-snippet p, .item .item-snippet h1, .item .item-snippet h2, .item .item-snippet h3, .item .item-snippet h4, .item .item-snippet h5, .item .item-snippet h6 {
+    padding: 0; }
+
+.item {
+  background-color: white;
+  /* todo: use box shadow instead of border */
+  /* border: 1px solid grey; */
+  padding: 10px 15px 10px 15px;
+  /* top right bottom left */
+  margin-bottom: 24px;
+  margin-right: 24px; }
+  .item .item-published {
+    font-size: 12px;
+    color: grey; }
+  .item .item-time-ago-in-words {
+    font-size: 12px;
+    color: grey; }
+  .item .item-collapse,
+  .item .item-close,
+  .item .item-opened {
+    color: grey;
+    cursor: pointer; }
+  .item .item-expand,
+  .item .item-open,
+  .item .item-closed {
+    cursor: pointer;
+    display: none; }

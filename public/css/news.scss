@@ -1,0 +1,117 @@
+// use  sass news.scss news.css
+//  or  sass --watch news.scss:news.css
+
+
+$primary-color:    #333;
+$secondary-color:  #777;
+
+$link-color:          #8b0000;  // darkred; see wikipedia web colors
+$link-visited-color:  #b22222;  // firebrick (red); see wikipedia web colors
+
+
+$std-font-size:   16px;
+$mid-font-size:   13px;
+$small-font-size: 12px;
+
+
+body {
+  font-family: sans-serif;
+  // font:  Arial, sans-serif;
+  // background-color: #F4F4F4;
+  color: $primary-color;
+}
+
+
+a {
+  text-decoration: none;
+  color: $link-color; 
+
+  &:visited {
+    color: $link-visited-color;
+  }
+
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+
+.last-update,
+.last-updated {
+  font-size: $small-font-size;
+  color:     $secondary-color;
+}
+
+#show-headlines,
+#show-snippets,
+#show-fulltext  {
+  cursor: pointer;
+}
+
+
+
+div.section,
+div.header,
+div.item
+{
+     margin: 0;
+     padding: 0;
+}
+
+
+hr.item-separator,
+hr.filler {
+     border: none;
+     background-color: #ccc;
+     color: #ccc;
+     height: 1px;
+}
+
+
+.item {
+  font-size: $mid-font-size;
+  
+  h1, h2, h3, h4, h5, h6, b {
+    font-size: $mid-font-size;
+  }
+  
+  p, h1, h2, h3, h4, h5, h6 {
+    margin: 2px 0px 2px 0px;   // top, right, bottom, left
+    padding: 0;
+  }
+
+  ul, ol {
+    margin: 2px 0px 2px 0px;   // top, right, bottom, left
+    // note: do NOT change default padding
+  }
+  
+  b, h1, h2, h3, h4, h5, h6 {
+    font-weight: normal;
+  }
+
+  .item-content,
+  .item-summary {
+    display: none;  // hide on startup
+  }
+
+  .item-footer {
+    font-size: $small-font-size;
+    color:     $secondary-color;  
+  }
+}
+
+
+.item-title {
+  font-size: $std-font-size;
+  font-weight: bold;
+}
+
+.feed-title {
+  font-size: $small-font-size;
+}
+ 
+.item-published {
+  font-size: $small-font-size;
+  color:     $secondary-color;
+}
+

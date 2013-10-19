@@ -1,0 +1,153 @@
+
+<h1><%= site.title %></h1>
+
+<div class='stream' style='width: 800px;'>
+
+<table>
+ <tr>
+  <td>
+     <div style='width: 50px; max-width: 50px;'></div>
+  </td>
+  <td width='100%'>
+   <!-- 2st column; filler column -->
+  <img src='i/view-headlines.png' id='show-headlines'  title='Switch to headlines only view' width='16' height='16'>
+  <img src='i/view-snippets.png'  id='show-snippets'   title='Switch to snippet view'        width='16' height='16'>
+  <img src='i/view-standard.png'  id='show-fulltext'   title='Switch to full text view'      width='16' height='16'>
+  </td>
+  <td class='last-update' style='white-space: nowrap; text-align: right;'>
+   <!-- 3nd column -->
+    Updated
+   <% if site.fetched %>
+      <%= site.fetched.strftime('%A, %d %B %Y %H:%M') %>
+   <% end %>
+  </td>
+ </tr>
+</table>
+
+<!--
+  todo: order first by date and than by feed and than by datetime
+    - lets us group all feed items of a feed group together
+ -->
+
+<%
+   items = site.items.latest.limit(24)
+   ItemCursor.new( items ).each do |item, new_date, new_feed|
+%>
+
+<div class='section' style='width: 800px;'>
+
+
+<% if new_feed %>
+<div class='header'>
+  <table width='100%'>
+   <tr>
+     <td>
+        <div style='width: 50px'>{}</div>
+     </td><!-- icon/logo -->
+     <td style='white-space: nowrap;'>
+       <span class='feed-title'>
+         <%= link_to item.feed.title, item.feed.url %>
+        (
+         <%= link_to 'Feed', item.feed.feed_url %>
+        )
+       </span>
+     </td><!-- feed title -->
+     <% if new_date %>
+     <td width='100%'>
+          <hr class='filler'>
+     </td><!-- filler -->
+      <td style='white-space: nowrap;'>
+       <span class='item-published'><%= item.published.strftime('%A, %d %B %Y') %></span>
+      </td><!-- item published -->
+     <% else %>
+     <td width='100%'>
+          <!-- note: width is a suggestion; will get smaller to fill space-->
+     </td>
+     <% end %>
+   </tr>
+  </table>
+</div>
+<% end %>
+
+<div class='item' style='width: 800px;'>
+
+<table width='100%'>
+  <tr>
+    <td>
+       <div style='width: 50px; max-width: 50px;'></div>  
+    </td><!-- icon/logo; dummy for space -->
+    <td width='100%'>
+        <span class='item-title'>
+          <%= link_to item.title, item.url %>
+        </span>
+    </td>
+  </tr>
+
+  <tr>
+    <td>
+       <div style='width: 50px; max-width: 50px;'></div>
+    </td><!-- icon/logo; dummy for space -->
+    <td width='100%'>
+
+<div class='item-body'>
+
+<div class='item-snippet'>
+<!-- use 'smarter' algorithm for cutoff snippet text
+   note: summary goes first; than try content -->
+<% if item.summary %>
+  <%= textify( item.summary )[0..300] %>
+<% elsif item.content %>
+  <%= textify( item.content )[0..300] %>
+<% else %>
+  -/-
+<% end %>
+</div>
+
+<div class='item-content item-summary'>
+<!-- todo: use sanitize or simplify or whitelist
+   - todo/fix: check why summary can be nil/null
+   note: content goes first; than try summary
+ -->
+<% if item.content %>
+  <%=  item.content  %>
+<% elsif item.summary %>
+  <%=  item.summary  %>
+<% else %>
+  -/-
+<% end %>
+</div>
+
+<div class='item-footer'>
+  <%= item.published.strftime('%H:%M') %>  &bull;
+    <span class='item-time-ago-in-words'>
+       <%= time_ago_in_words( item.published ) %>
+    </span>
+</div>
+
+</div><!-- item-body -->
+
+    </td>
+  </tr>
+</table>
+
+</div>  <!-- item -->
+</div> <!-- section -->
+
+
+<% end %><!-- each item -->
+
+
+<div class='header'>
+<table width='100%'>
+  <tr>
+    <td>
+       <div style='width: 50px; max-width: 50px;'></div>  
+    </td>
+    <td width='100%'>
+       <hr class='item-separator'>
+    </td>
+  </tr>
+</table>
+</div>
+
+</div> <!-- stream -->

@@ -1,0 +1,141 @@
+// use  sass blank.cards.scss blank.cards.css
+//  or  sass --watch blank.cards.scss:blank.cards.css
+
+
+$primary-color:   #333;          // title, etc.
+$secondary-color: grey;
+$background-color:  #f4f4f4;
+
+
+$link-color:          #8b0000;  // darkred; see wikipedia web colors
+
+$small-font-size: 12px;
+
+
+body {
+  font-family: sans-serif;
+  background-color:  $background-color;
+  color: $primary-color;
+}  
+
+
+a {
+  text-decoration: none;
+  color: $primary-color;
+
+  &:hover {
+    text-decoration: underline;
+    color: $link-color;
+  }
+}
+
+
+
+.small {
+  font-size: $small-font-size;
+  color: $secondary-color;
+  // color: #666666;  -- lighter gray than text gray
+}
+
+
+
+#opts {
+  float: right;
+  width: 200px;
+  // background-color: white;
+  padding-left: 12px;
+
+  font-size: $small-font-size;
+  color:     $secondary-color;
+
+  a {
+    text-decoration: none;
+    color:           $secondary-color; 
+
+    &:hover {
+      text-decoration:  underline;
+    }
+  }
+
+  #show-headlines,
+  #show-snippets,
+  #show-fulltext  {
+    cursor: pointer;
+  }
+}
+
+
+
+.item {
+  h4.feed-title {
+    margin-top: 4px;
+    margin-bottom: 4px;
+  }
+
+  h3.item-title {
+    margin-top: 4px;
+    margin-bottom: 4px;
+  }
+  
+  .item-summary,
+  .item-content {
+    display: none;  // hide on startup
+   }
+   
+   .item-snippet {
+     /* fix/todo: move to scss partial for reuse eg. _snippet.scss or similar */
+    h1, h2, h3, h4, h5, h6 {
+       font-size: 100%;
+     }
+     b, h1, h2, h3, h4, h5, h6 {
+       font-weight: normal;
+     }
+     p, ul, ol, h1, h2, h3, h4, h5, h6 {
+        margin: 2px 0px 2px 0px;  // top right bottom left
+     }
+     p, h1, h2, h3, h4, h5, h6 {
+        padding: 0;
+        // note: exclude ul,ol, that is, lists
+     }
+   }
+}
+
+
+.item {
+  background-color: white;
+  /* todo: use box shadow instead of border */
+  /* border: 1px solid grey; */
+  padding: 10px 15px 10px 15px; /* top right bottom left */
+  margin-bottom:  24px;
+  margin-right:   24px;
+
+  .item-title    {
+   // nothing for now
+  }
+  
+  .item-published
+  {
+    // white-space: nowrap;
+    font-size: $small-font-size;
+    color:     $secondary-color;
+  }
+
+  .item-time-ago-in-words {
+    font-size: $small-font-size;
+    color:     $secondary-color;
+  }
+  
+  .item-collapse,
+  .item-close,
+  .item-opened {
+    color: grey;
+    cursor: pointer;
+  }
+
+  .item-expand,
+  .item-open,
+  .item-closed {
+    cursor: pointer;
+    display: none;   // hide on startup
+  }  
+}

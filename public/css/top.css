@@ -1,0 +1,32 @@
+
+
+body {
+  font-family: sans-serif;
+  background-color: #F4F4F4;
+  color: #333333;
+}  
+
+a, a:visited {
+  text-decoration: none;
+  color: #333333;
+}
+
+a:hover {
+  text-decoration: underline;
+  color: #333333;
+  background-color: yellow;
+}
+
+
+.feed {
+
+  background-color: white;
+  border: 1px solid #9E9E9E;
+  padding: 0px 15px 15px 15px;
+  margin-bottom:  12px;
+}  
+  
+.item-published { white-space: nowrap; font-size: 12px; color: grey; }
+.item-title     {  }
+
+.item-time-ago-in-words { font-size: 12px; color: grey; }

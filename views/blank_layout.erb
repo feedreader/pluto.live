@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset='utf-8'>
+  <meta name='generator' content='<%= Pluto.generator %>'>
+
+  <title><%= site.title %></title>
+
+  <%= stylesheet_link_tag 'css/font-awesome' %>
+  <%= stylesheet_link_tag 'css/blank' %>
+
+  <!-- fix: use script_tag  rails-style ??? -->
+  <script src='js/jquery-2.0.3.min.js'></script>
+  <script src='js/blank.js'></script>
+
+  <%# = javascript_include_tag 'js/jquery-2.0.3.min.js' %>
+  <%# = javascript_include_tag 'js/blank.js' %>
+
+</head>
+<body>
+
+<%= yield %>
+
+<%= erb :'shared/_version' %>
+
+</body>
+</html>

@@ -1,0 +1,119 @@
+
+<div id='opts'>
+  <div style='width: 100%; text-align: right;'>
+   <img src='i/view-headlines.png' id='show-headlines' title='Show Headlines Only' width='24' height='24'>
+   <img src='i/view-snippets.png' id='show-snippets'    title='Show Snippets' width='24' height='24'>
+   <img src='i/view-standard.png' id='show-fulltext'    title='Show Full Text' width='24' height='24'>
+  </div>
+  <div style='width: 100%; text-align: right;'>
+    Style | 
+      <%= link_to( 'Standard', root_path( style: 'std')) %> &bull;
+      <%= link_to( 'Cards',    root_path( style: 'cards' )) %> &bull;
+      <%= link_to( 'News',     root_path( style: 'news' )) %> &bull;
+      <%= link_to( 'Top',      root_path( style: 'top' )) %>
+  </div>
+</div>
+
+
+<h1>
+  <%= site.title %>
+  <span class='small'>
+  Last Update:
+   <% if site.fetched %>
+    <%= site.fetched.strftime('%A, %d. %B %Y %H:%M') %>
+   <% end %>
+  </span>
+</h1>
+
+
+<!-- use a table w/ two colums -->
+
+
+<table>
+  <colgroup>
+    <col width='50%'>
+    <col width='50%'>
+  </colgroup>
+<tr>
+
+<%  site.items.latest.limit(24).in_columns(2).each do |items| %>
+
+<td valign='top'>
+  <!-- start new column -->
+
+  <% items.each do |item| %>
+
+
+
+<article class='item'>
+
+<h4 class='feed-title'>
+  <span class='feed-title'>
+    <%= link_to item.feed.title, item.feed.url %>
+  </span>
+  <span class='item-published'>
+     - 
+      <!-- fix/todo: show year if not current year
+           e.g. use "%b %d, '%y"
+         -->
+     <%= item.published.strftime("%b %d") %>
+  </span>
+</h4>
+
+
+<h3 class='item-title'>
+  <i class='icon-caret-down item-collapse item-close item-opened'></i>
+  <i class='icon-caret-right item-expand item-open item-closed'></i>
+  <span class='item-title'>
+    <%= link_to item.title, item.url %>
+   </span>
+</h3>
+
+<div class='item-body'>
+  
+<div class='item-snippet'>
+<!-- use 'smarter' algorithm for cutoff snippet text
+   note: summary goes first; than try content -->
+<% if item.summary %>
+  <%= textify( item.summary )[0..400] %>
+<% elsif item.content %>
+  <%= textify( item.content )[0..400] %>
+<% else %>
+  -/-
+<% end %>
+
+ <span class='item-time-ago-in-words'>
+ <%= time_ago_in_words( item.published ) %>
+ </span>  
+</div>
+
+<div class='item-content item-summary'>
+
+<!-- todo: use sanitize or simplify or whitelist
+   - todo/fix: check why summary can be nil/null
+   note: content goes first; than try summary
+ -->
+<% if item.content %>
+  <%= item.content %>
+<% elsif item.summary %>
+  <%= item.summary %>
+<% else %>
+  -/-
+<% end %>
+
+ <span class='item-time-ago-in-words'>
+ <%= time_ago_in_words( item.published ) %>
+ </span>  
+  
+</div>
+
+</div> <!-- item-body -->
+</article><!-- item -->
+
+
+  <% end %><!-- each item (inside column) -->
+ </td>
+
+<% end %><!-- each column-->
+  </tr>
+</table>

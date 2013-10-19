@@ -10,6 +10,9 @@ class Planet < Sinatra::Base
   ###################
   # Helpers
 
+  include TextUtils::HypertextHelper
+  include TextUtils::DateHelper
+
   def path_prefix
     request.script_name   # request.env['SCRIPT_NAME']
   end
@@ -18,13 +21,25 @@ class Planet < Sinatra::Base
     "#{path_prefix}/feed/#{feed.key}"
   end
   
-  def root_path
-    "#{path_prefix}/"
+  def root_path( opts={} )
+    # note: convert opts to query params e.g ?style=iii
+
+    if opts.empty?
+      "#{path_prefix}/"
+    else
+      buf = "#{path_prefix}/?"
+      opts.each_with_index do |(key, value), index|
+        buf << '&' if index > 0
+        buf << "#{key}=#{value}"
+      end
+      buf
+    end
   end
 
   ##############################################
   # Controllers / Routing / Request Handlers
 
+=begin
   get '/feed/:key' do |key|
     erb :feed, locals: { feed: Feed.find_by_key!( key ), site: find_planet_site }
   end
@@ -32,7 +47,34 @@ class Planet < Sinatra::Base
   get '/' do
     erb :index, locals: { site: find_planet_site }
   end
+=end
 
+  get '/' do
+    style = params[:style] || 'std'
+    if ['cards','c','ii','2'].include?( style )
+      tpl    = :'blank.cards'
+      layout = :'blank.cards_layout'
+    elsif ['news','n','iii','3'].include?( style )
+      tpl    = :'news'
+      layout = :'news_layout'
+    elsif ['top','t','iv','4'].include?( style )
+      tpl    = :'top'
+      layout = :'top_layout'
+    else
+      tpl    = :'blank'
+      layout = :'blank_layout'
+    end
+
+    erb tpl, :layout => layout, locals: { site: find_planet_site }
+  end
+
+  get '/blank' do
+    erb :blank, :layout => :blank_layout, locals: { site: find_planet_site }
+  end
+
+  get '/blank.cards' do
+    erb :'blank.cards', :layout => :'blank.cards_layout', locals: { site: find_planet_site }
+  end
 
   #################
   # Utilities

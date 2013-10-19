@@ -1,0 +1,67 @@
+
+<h1><%= site.title %></h1>
+
+<!-- use a table w/ three colums -->
+
+<table>
+  <colgroup>
+    <col width='33%'>
+    <col width='33%'>
+    <col width='33%'>
+  </colgroup>
+<tr>
+
+<!-- check/fix: check if it will work w/o .all. - depreciated in rails 4+ -->
+<%  site.feeds.latest.in_columns(3).each do |feeds| %>
+<td valign='top'>
+  <!-- start new column -->
+
+  <% feeds.each do |feed| %>
+
+
+<div class='feed'>
+<h3><%= link_to feed.title, feed.url %></h3>
+<table>
+  <!-- todo:
+     include latest 11 (more than 4 add hidden
+       plus add a more toggle button to show all 11!! )
+    -->
+  <% feed.items.latest.limit(4).each do |item|
+     
+      ## todo: use markdownify in future version
+      ## todo: unescape all &xx; entities -html and unicode - how?
+
+      if item.summary
+        item_snippet_plain_text = strip_tags( item.summary )[0..500]
+      elsif item.content
+        item_snippet_plain_text = strip_tags( item.content )[0..500]
+      else
+        item_snippet_plain_text = '-/-'
+      end
+  %>
+    <tr>
+     <td valign='top'>
+      <span class='item-published'>
+          <!-- fix/todo: show year if not current year
+             e.g. use "%b %d, '%y"
+          -->
+        <%= item.published.strftime("%b %d") %>
+      </span>
+     </td>
+     <td>
+       <span class='item-title'>
+           <%= link_to item.title, item.url, title: item_snippet_plain_text %>
+       </span>
+       <span class='item-time-ago-in-words'><%= time_ago_in_words( item.published ) %></span>
+     </td>
+    </tr>
+  <% end %><!-- each item -->
+</table>
+</div>
+
+
+  <% end %><!-- each feed (inside column) -->
+ </td>
+<% end %><!-- each column-->
+  </tr>
+</table>

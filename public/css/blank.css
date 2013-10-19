@@ -1,0 +1,113 @@
+body {
+  font-family: sans-serif;
+  color: #333333; }
+
+a {
+  text-decoration: none;
+  color: darkred; }
+  a:visited {
+    color: firebrick; }
+  a:hover {
+    text-decoration: underline; }
+
+.small {
+  font-size: 12px; }
+
+#navwrap {
+  float: right;
+  background-color: white;
+  padding-left: 12px;
+  padding-bottom: 24px; }
+
+#nav {
+  width: 180px;
+  padding: 4px;
+  border: 1px solid #bbb;
+  background-color: #eee; }
+  #nav ul.subscriptions {
+    list-style-type: none;
+    margin-left: 0;
+    padding-left: 0; }
+  #nav ul.planetarium {
+    list-style-type: square;
+    /*  margin-left: 0;
+        padding-left: 0;  */ }
+
+#opts {
+  float: right;
+  width: 200px;
+  background-color: white;
+  padding-left: 12px;
+  font-size: 12px;
+  color: grey; }
+  #opts a {
+    text-decoration: none;
+    color: grey; }
+    #opts a:hover {
+      text-decoration: underline; }
+  #opts #show-headlines,
+  #opts #show-snippets,
+  #opts #show-fulltext {
+    cursor: pointer; }
+
+.new-date {
+  border-bottom: 1px solid #9e9e9e;
+  border-top: 1px solid #9e9e9e;
+  padding-top: 3px;
+  padding-bottom: 3px; }
+
+hr.item-seperator {
+  border: none;
+  background-color: #ccc;
+  color: #ccc;
+  height: 1px; }
+
+.item {
+  padding: 0px 5px 5px 5px; }
+  .item .item-content,
+  .item .item-summary,
+  .item .item-snippet {
+    font-size: 14px;
+    margin-top: 14px; }
+    .item .item-content h1, .item .item-content h2, .item .item-content h3, .item .item-content h4, .item .item-content h5, .item .item-content h6,
+    .item .item-summary h1,
+    .item .item-summary h2,
+    .item .item-summary h3,
+    .item .item-summary h4,
+    .item .item-summary h5,
+    .item .item-summary h6,
+    .item .item-snippet h1,
+    .item .item-snippet h2,
+    .item .item-snippet h3,
+    .item .item-snippet h4,
+    .item .item-snippet h5,
+    .item .item-snippet h6 {
+      font-size: 100%; }
+  .item .item-snippet {
+    display: none;
+    /* fix/todo: move to scss partial for reuse eg. _snippet.scss or similar */ }
+    .item .item-snippet b, .item .item-snippet h1, .item .item-snippet h2, .item .item-snippet h3, .item .item-snippet h4, .item .item-snippet h5, .item .item-snippet h6 {
+      font-weight: normal; }
+    .item .item-snippet p, .item .item-snippet ul, .item .item-snippet ol, .item .item-snippet h1, .item .item-snippet h2, .item .item-snippet h3, .item .item-snippet h4, .item .item-snippet h5, .item .item-snippet h6 {
+      margin: 2px 0px 2px 0px; }
+    .item .item-snippet p, .item .item-snippet h1, .item .item-snippet h2, .item .item-snippet h3, .item .item-snippet h4, .item .item-snippet h5, .item .item-snippet h6 {
+      padding: 0; }
+  .item .item-title {
+    margin-top: 0;
+    margin-bottom: 0; }
+  .item .item-footer {
+    font-size: 12px;
+    color: grey; }
+  .item .feed-title {
+    margin-bottom: 5px;
+    font-size: 12px; }
+  .item .item-collapse,
+  .item .item-close,
+  .item .item-opened {
+    color: grey;
+    cursor: pointer; }
+  .item .item-expand,
+  .item .item-open,
+  .item .item-closed {
+    cursor: pointer;
+    display: none; }

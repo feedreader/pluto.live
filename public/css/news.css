@@ -1,0 +1,63 @@
+body {
+  font-family: sans-serif;
+  color: #333333; }
+
+a {
+  text-decoration: none;
+  color: darkred; }
+  a:visited {
+    color: firebrick; }
+  a:hover {
+    text-decoration: underline; }
+
+.last-update,
+.last-updated {
+  font-size: 12px;
+  color: #777777; }
+
+#show-headlines,
+#show-snippets,
+#show-fulltext {
+  cursor: pointer; }
+
+div.section,
+div.header,
+div.item {
+  margin: 0;
+  padding: 0; }
+
+hr.item-separator,
+hr.filler {
+  border: none;
+  background-color: #ccc;
+  color: #ccc;
+  height: 1px; }
+
+.item {
+  font-size: 13px; }
+  .item h1, .item h2, .item h3, .item h4, .item h5, .item h6, .item b {
+    font-size: 13px; }
+  .item p, .item h1, .item h2, .item h3, .item h4, .item h5, .item h6 {
+    margin: 2px 0px 2px 0px;
+    padding: 0; }
+  .item ul, .item ol {
+    margin: 2px 0px 2px 0px; }
+  .item b, .item h1, .item h2, .item h3, .item h4, .item h5, .item h6 {
+    font-weight: normal; }
+  .item .item-content,
+  .item .item-summary {
+    display: none; }
+  .item .item-footer {
+    font-size: 12px;
+    color: #777777; }
+
+.item-title {
+  font-size: 16px;
+  font-weight: bold; }
+
+.feed-title {
+  font-size: 12px; }
+
+.item-published {
+  font-size: 12px;
+  color: #777777; }

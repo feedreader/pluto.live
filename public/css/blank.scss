@@ -1,0 +1,176 @@
+// use  sass blank.scss blank.css
+//  or  sass --watch blank.scss:blank.css
+
+
+$primary-color:   #333;          // title, etc.
+$secondary-color: grey;
+
+$link-color:          #8b0000;  // darkred; see wikipedia web colors
+$link-visited-color:  #b22222;  // firebrick (red); see wikipedia web colors
+
+
+$small-font-size: 12px;
+
+
+
+body {
+  font-family: sans-serif;
+  color: $primary-color;
+}
+
+
+a {
+  text-decoration: none;
+  color: $link-color;
+
+  &:visited {
+    color: $link-visited-color;
+  }
+
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+
+.small {
+  font-size: $small-font-size;
+}
+
+
+
+#navwrap {
+  float: right;
+  background-color: white;
+  padding-left: 12px;
+  padding-bottom: 24px;
+}
+
+
+#nav {
+  width: 180px;
+  padding: 4px;
+  border: 1px solid #bbb;
+  background-color: #eee;
+
+  ul.subscriptions {
+    list-style-type: none;
+    margin-left: 0;
+    padding-left: 0;
+  }
+
+  ul.planetarium {
+    list-style-type: square;
+    /*  margin-left: 0;
+        padding-left: 0;  */
+  } 
+}
+
+
+#opts {
+  float: right;
+  width: 200px;
+  background-color: white;
+  padding-left: 12px;
+
+  font-size: $small-font-size;
+  color:     $secondary-color;
+
+  a {
+    text-decoration: none;
+    color:           $secondary-color; 
+
+    &:hover {
+      text-decoration:  underline;
+    }
+  }
+
+  #show-headlines,
+  #show-snippets,
+  #show-fulltext  {
+    cursor: pointer;
+  }
+}
+
+
+
+.new-date {
+      // text-align: center; */
+      border-bottom: 1px solid #9e9e9e;
+      border-top: 1px solid #9e9e9e;
+      padding-top: 3px;
+      padding-bottom: 3px;
+}
+
+hr.item-seperator {
+     border: none;
+     background-color: #ccc;
+     color: #ccc;
+     height: 1px;
+}
+
+
+
+.item {
+    padding: 0px 5px 5px 5px;  // top, right, bottom, left
+    // margin-bottom:  12px;
+    
+   .item-content,
+   .item-summary,
+   .item-snippet {
+
+     font-size: 14px;
+     margin-top: 14px;
+
+     h1, h2, h3, h4, h5, h6 {
+       font-size: 100%;
+     }
+   }
+
+   .item-snippet {
+    display: none;  // hide on startup
+    
+     /* fix/todo: move to scss partial for reuse eg. _snippet.scss or similar */
+     b, h1, h2, h3, h4, h5, h6 {
+       font-weight: normal;
+     }
+     p, ul, ol, h1, h2, h3, h4, h5, h6 {
+        margin: 2px 0px 2px 0px;  // top right bottom left
+     }
+     p, h1, h2, h3, h4, h5, h6 {
+        padding: 0;
+        // note: exclude ul,ol, that is, lists
+     }
+     
+   }
+   
+   .item-title {
+    margin-top: 0;
+    margin-bottom: 0;
+    // font-size: 16px;
+   }
+
+   .item-footer {
+     font-size: $small-font-size;
+     color: $secondary-color;
+   }
+   
+   .feed-title {
+     margin-bottom: 5px;
+     font-size: $small-font-size;
+   }
+   
+  .item-collapse,
+  .item-close,
+  .item-opened {
+    color: grey;
+    cursor: pointer;
+  }
+
+  .item-expand,
+  .item-open,
+  .item-closed {
+    cursor: pointer;
+    display: none;   // hide on startup
+  }
+}
