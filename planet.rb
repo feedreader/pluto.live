@@ -16,11 +16,7 @@ class Planet < Sinatra::Base
   def path_prefix
     request.script_name   # request.env['SCRIPT_NAME']
   end
-  
-  def feed_path( feed )
-    "#{path_prefix}/feed/#{feed.key}"
-  end
-  
+
   def root_path( opts={} )
     # note: convert opts to query params e.g ?style=iii
 
@@ -38,16 +34,6 @@ class Planet < Sinatra::Base
 
   ##############################################
   # Controllers / Routing / Request Handlers
-
-=begin
-  get '/feed/:key' do |key|
-    erb :feed, locals: { feed: Feed.find_by_key!( key ), site: find_planet_site }
-  end
-
-  get '/' do
-    erb :index, locals: { site: find_planet_site }
-  end
-=end
 
   get '/' do
     style = params[:style] || 'std'
@@ -67,6 +53,7 @@ class Planet < Sinatra::Base
 
     erb tpl, :layout => layout, locals: { site: find_planet_site }
   end
+
 
   get '/blank' do
     erb :blank, :layout => :blank_layout, locals: { site: find_planet_site }
