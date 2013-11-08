@@ -42,7 +42,7 @@ GEM
       logutils (>= 0.6)
       pakman (>= 0.5)
       props (>= 1.0.2)
-      textutils (>= 0.7)
+      textutils (>= 0.6.8)
     pluto-admin (0.2.1)
       logutils (>= 0.5)
     props (1.0.2)

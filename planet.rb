@@ -17,6 +17,20 @@ class Planet < Sinatra::Base
     request.script_name   # request.env['SCRIPT_NAME']
   end
 
+  def site_path( site, opts={} )
+    ## fix: reuse opts to attribs func
+    if opts.empty?
+      "#{path_prefix}/#{site.key}"
+    else
+      buf = "#{path_prefix}/#{site.key}?"
+      opts.each_with_index do |(key, value), index|
+        buf << '&' if index > 0
+        buf << "#{key}=#{value}"
+      end
+      buf
+    end
+  end
+
   def root_path( opts={} )
     # note: convert opts to query params e.g ?style=iii
 
@@ -35,7 +49,13 @@ class Planet < Sinatra::Base
   ##############################################
   # Controllers / Routing / Request Handlers
 
-  get '/' do
+  get '/:key?' do
+    key   = params[:key]
+    
+    puts "  get /:key?  |  key: >#{key}<"
+    
+    key = Site.first.key    if key.nil?
+    
     style = params[:style] || 'std'
     if ['cards','c','ii','2'].include?( style )
       tpl    = :'blank.cards'
@@ -51,22 +71,26 @@ class Planet < Sinatra::Base
       layout = :'blank_layout'
     end
 
-    erb tpl, :layout => layout, locals: { site: find_planet_site }
+    erb tpl, :layout => layout, locals: { site: find_site_by_key( key ) }
   end
 
 
   get '/blank' do
-    erb :blank, :layout => :blank_layout, locals: { site: find_planet_site }
+    erb :blank, :layout => :blank_layout, locals: { site: find_site_first }
   end
 
   get '/blank.cards' do
-    erb :'blank.cards', :layout => :'blank.cards_layout', locals: { site: find_planet_site }
+    erb :'blank.cards', :layout => :'blank.cards_layout', locals: { site: find_site_first }
   end
 
   #################
   # Utilities
 
-  def find_planet_site
+  def find_site_by_key( key )
+    Site.find_by_key!( key )
+  end
+
+  def find_site_first
     site = Site.first      # FIX: for now assume one planet per DB (fix later; allow planet key or similar)
     if site.present?
       site

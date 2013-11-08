@@ -66,7 +66,8 @@ task :setup => :env do
   puts "dump planet setup settings >#{config_path}<:"
   pp config
 
-  Pluto.update_subscriptions( config )
+  # note: allow multiple planets (sites) for a single install
+  Pluto::Subscriber.new.update_subscriptions_for( key, config )
 
   puts 'Done.'
 end
