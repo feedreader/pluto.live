@@ -73,8 +73,25 @@ task :setup => :env do
 end
 
 
+desc 'pluto -=- update planet configs (sites)'
+task :update_sites => :env do
+
+  refresher = Pluto::Refresher.new
+  refresher.debug = true
+  
+  refresher.update_sites  # update all site configs if source (url) present/specified
+
+  puts 'Done.'
+end
+
+
 desc 'pluto -=- update planet (feeds)'
 task :update => :env do
+
+  refresher = Pluto::Refresher.new
+  refresher.debug = true
+  
+  refresher.update_sites  # update all site configs if source (url) present/specified
 
   Pluto.update_feeds
   
