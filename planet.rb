@@ -49,6 +49,10 @@ class Planet < Sinatra::Base
   ##############################################
   # Controllers / Routing / Request Handlers
 
+  get '/favicon.ico' do
+    404  # return 404 not found - sorry - no favion for now
+  end
+
   get '/:key?' do
     key   = params[:key]
     
@@ -71,33 +75,7 @@ class Planet < Sinatra::Base
       layout = :'blank_layout'
     end
 
-    erb tpl, :layout => layout, locals: { site: find_site_by_key( key ) }
-  end
-
-
-  get '/blank' do
-    erb :blank, :layout => :blank_layout, locals: { site: find_site_first }
-  end
-
-  get '/blank.cards' do
-    erb :'blank.cards', :layout => :'blank.cards_layout', locals: { site: find_site_first }
-  end
-
-  #################
-  # Utilities
-
-  def find_site_by_key( key )
-    Site.find_by_key!( key )
-  end
-
-  def find_site_first
-    site = Site.first      # FIX: for now assume one planet per DB (fix later; allow planet key or similar)
-    if site.present?
-      site
-    else
-      site = Site.new
-      site.title = 'Planet Untitled'
-    end
+    erb tpl, :layout => layout, locals: { site: Site.find_by_key!( key ) }
   end
 
 
