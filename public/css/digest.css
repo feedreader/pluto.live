@@ -1,0 +1,63 @@
+body {
+  font-family: "Helvetica Neue",Helvetica,"Trebuchet MS",sans-serif;
+  color: #0b0b0b;
+  background-color: #fbfbfb;
+  font-size: 15px; }
+
+.container {
+  margin: 60px 60px 60px 60px; }
+
+a {
+  text-decoration: none;
+  color: darkred; }
+  a:visited {
+    color: firebrick; }
+  a:hover {
+    text-decoration: underline; }
+
+.small {
+  font-size: 12px; }
+
+.masthead h1 {
+  font-size: 5em;
+  margin-bottom: 0;
+  margin-top: 0; }
+
+.contents ol {
+  color: #777777; }
+.contents .item-feed-title {
+  font-size: 12px; }
+  .contents .item-feed-title a {
+    color: #777777; }
+    .contents .item-feed-title a:visited {
+      color: #777777; }
+.contents .item-published {
+  font-size: 12px; }
+
+.item .item-header h2 {
+  font-size: 2.5em;
+  margin-bottom: 0; }
+.item .item-header .item-feed-title {
+  color: #777777;
+  font-size: 12px; }
+  .item .item-header .item-feed-title a {
+    color: #777777; }
+    .item .item-header .item-feed-title a:visited {
+      color: #777777; }
+.item .item-header .item-published {
+  color: #777777;
+  font-size: 12px; }
+.item .item-content,
+.item .item-summary {
+  font-size: 15px; }
+  .item .item-content h1, .item .item-content h2, .item .item-content h3, .item .item-content h4, .item .item-content h5, .item .item-content h6,
+  .item .item-summary h1,
+  .item .item-summary h2,
+  .item .item-summary h3,
+  .item .item-summary h4,
+  .item .item-summary h5,
+  .item .item-summary h6 {
+    font-size: 100%; }
+
+div.feedflare {
+  display: none; }

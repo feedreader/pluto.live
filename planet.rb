@@ -70,6 +70,12 @@ class Planet < Sinatra::Base
     elsif ['top','t','iv','4'].include?( style )
       tpl    = :'top'
       layout = :'top_layout'
+    elsif ['hacker','h','v','5'].include?( style )
+      tpl    = :'hacker'
+      layout = :'hacker_layout'    
+    elsif ['digest','d','vi','6'].include?( style )
+      tpl    = :'digest'
+      layout = :'digest_layout'
     else
       tpl    = :'blank'
       layout = :'blank_layout'

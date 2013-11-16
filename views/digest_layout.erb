@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset='utf-8'>
+  <meta name='generator' content='<%= Pluto.generator %>'>
+
+  <title><%= site.title %></title>
+
+  <%= stylesheet_link_tag 'css/digest' %>
+</head>
+<body>
+
+<%= yield %>
+
+<%= erb :'shared/_version' %>
+
+</body>
+</html>

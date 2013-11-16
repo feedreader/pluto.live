@@ -1,0 +1,51 @@
+
+<div class='container'>
+
+<div class='masthead'>
+  <table>
+    <tr>
+      <td><h1><%= site.title %></h1></td>
+      <td>
+         latest | top in 24 h | 7 days | 30 days | 365 days
+      </td>
+    </tr>
+  </table>
+</div>
+
+
+<table>
+<% site.items.latest.limit(30).each_with_index do |item,index|
+      if item.summary
+        item_snippet_plain_text = strip_tags( item.summary )[0..500]
+      elsif item.content
+        item_snippet_plain_text = strip_tags( item.content )[0..500]
+      else
+        item_snippet_plain_text = '-/-'
+      end
+  %>
+ <tr>
+   <td valign='top' align='right'><%= "#{index+1}." %></td>
+   <td><!-- up voting to be done --> &and; </td>
+   <td>
+      <%= link_to item.title, item.url, title: item_snippet_plain_text %>
+      <span class='item-feed-title'>
+        &bull; <%= link_to item.feed.title, item.feed.url %>
+       </span>
+    <td>
+ </tr>
+ <tr>
+   <td colspan='2'></td>
+   <td>
+      <span class='item-points'>
+        1 point
+      </span>
+      <span class='item-published'>
+         &bull;  <%= item.published.strftime('%A %B %d, %Y @ %H:%M') %> 
+         &bull;  <%= time_ago_in_words( item.published ) %>
+      </span>
+    </td>
+ </tr>
+<% end %><!-- each item -->
+</table>
+
+</div><!-- container -->

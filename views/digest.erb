@@ -1,0 +1,78 @@
+
+<div class='container'>
+
+<div class='masthead'>
+  <h1><%= site.title %></h1>
+  the unofficial alterslash-style digest
+</div>
+
+
+<!-- 1) list headlines w/ inline links -->
+
+<div class='contents'>
+
+<p><b>Contents</b></p>
+<ol>
+
+<% site.items.latest.limit(15).each_with_index do |item,index| %>
+  <li>
+      <%= link_to item.title, '#'+"#{index+1}" %>
+      <span class='item-feed-title'>
+        &bull; <%= link_to item.feed.title, item.feed.url %>
+       </span>
+      <span class='item-published'>
+         &bull;  <%= time_ago_in_words( item.published ) %>
+      </span>
+  </li>
+<% end %><!-- each item -->
+
+</ol>
+</div>
+
+
+
+<!-- 2) list full articles -->
+
+<% site.items.latest.limit(15).each_with_index do |item,index| %>
+
+
+<a name='<%= "#{index+1}" %>'></a>
+
+<div class='item'>
+<div class='item-header'>
+<h2>
+  <!-- <%= index+1 %>.  -->
+  <%= link_to item.title, item.url %>
+</h2>
+
+  <span class='item-feed-title'>
+   <%= link_to item.feed.title, item.feed.url %>  &bull; 
+  </span>
+  <span class='item-published'>
+    <%= item.published.strftime('%A %B %d, %Y @ %H:%M') %> &bull;  
+    <%= time_ago_in_words( item.published ) %>
+  </span>
+</div>
+
+
+<div class='item-body'>
+<div class='item-content item-summary'>
+
+<!--
+   note: content goes first; than try summary
+ -->
+<% if item.content %>
+  <%= item.content %>
+<% elsif item.summary %>
+  <%= item.summary %>
+<% else %>
+  -/-
+<% end %>
+  
+</div>
+</div><!-- item-body -->
+</div><!-- item -->
+
+<% end %><!-- each item -->
+
+</div><!-- container -->

@@ -1,0 +1,33 @@
+body {
+  font-family: Verdana;
+  color: #828282;
+  font-size: 10pt; }
+
+.container {
+  margin: 10px 60px 10px 60px; }
+
+a {
+  text-decoration: none;
+  color: black; }
+  a:visited {
+    color: #828282; }
+  a:hover {
+    text-decoration: underline; }
+
+.masthead {
+  color: black; }
+  .masthead h1 {
+    font-size: 10pt;
+    margin-bottom: 0;
+    margin-top: 0; }
+
+.item-feed-title {
+  font-size: 8pt; }
+  .item-feed-title a {
+    color: #828282; }
+    .item-feed-title a:visited {
+      color: #828282; }
+
+.item-points,
+.item-published {
+  font-size: 7pt; }
