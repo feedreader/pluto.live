@@ -22,7 +22,7 @@
     <p>Planetarium</p>
     <ul class='planetarium small'>
       <li><a href='http://plutolive.herokuapp.com'>Planet Ruby</a></li>
-      <li><a href='http://viennarb.herokuapp.com'>Planet vienna.rb</a></li>
+      <li><a href='http://viennarb.herokuapp.com'>Planet Vienna.rb</a></li>
     </ul>
 
     <p>Meta</p>
@@ -42,12 +42,12 @@
   </div>
   <div style='width: 100%; text-align: right;'>
     Style |
-      <%= link_to( 'Standard', root_path( style: 'std')) %> &bull;
-      <%= link_to( 'Cards',    root_path( style: 'cards' )) %> &bull;
-      <%= link_to( 'News',     root_path( style: 'news' )) %> &bull;
-      <%= link_to( 'Top',      root_path( style: 'top' )) %>  &bull;
-      <%= link_to( 'Hacker',   root_path( style: 'hacker' )) %>  &bull;
-      <%= link_to( 'Digest',   root_path( style: 'digest' )) %>
+      <%= link_to( 'Standard', site_path( site, style: 'std')) %> &bull;
+      <%= link_to( 'Cards',    site_path( site, style: 'cards' )) %> &bull;
+      <%= link_to( 'News',     site_path( site, style: 'news' )) %> &bull;
+      <%= link_to( 'Top',      site_path( site, style: 'top' )) %>  &bull;
+      <%= link_to( 'Hacker',   site_path( site, style: 'hacker' )) %>  &bull;
+      <%= link_to( 'Digest',   site_path( site, style: 'digest' )) %>
   </div>
 </div>
 
@@ -84,7 +84,7 @@
  <i class='icon-caret-down item-collapse item-close item-opened'></i>
  <i class='icon-caret-right item-expand item-open item-closed'></i>
  <%= link_to item.title, item.url %>
-</h2>
+</h3>
 
 <div class='item-body'>
 

@@ -12,9 +12,15 @@
     <link rel='icon'       href='i/favicon.png'   type='image/png'>
 
 </head>
-<body>
+<body style='margin: 0;'>
 
+<!-- add top level banner for planets -->
+<%= erb :'shared/_banner' %>
+
+<!-- wrap in container -->
+<div style='margin: 6px;'>
 <%= yield %>
+</div>
 
 <%= erb :'shared/_version' %>
 
