@@ -1,0 +1,28 @@
+.banner {
+  color: white;
+  background-color: black;
+  font-size: 12px;
+  padding: 6px 6px 4px 8px;
+  margin: 0 0 8px 0; }
+  .banner a {
+    text-decoration: none;
+    color: white; }
+    .banner a:hover {
+      text-decoration: underline; }
+
+.version {
+  text-align: center;
+  margin-top: 10px;
+  color: grey;
+  font-size: 12px; }
+  .version a {
+    color: grey; }
+
+.feedflare {
+  display: none; }
+
+.mf-viral {
+  display: none; }
+
+#mc_embed_signup {
+  display: none; }

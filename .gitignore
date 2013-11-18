@@ -1,3 +1,11 @@
+##############
+# ignore sass-cache
+
+.sass-cache
+.sass-cache/
+public/css/.sass-cache
+public/css/.sass-cache/
+
 
 ############
 # ignore sqlite dbs (e.g. pluto.db etc.)

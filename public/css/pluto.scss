@@ -1,0 +1,86 @@
+// use  sass pluto.scss pluto.css
+//  or  sass --watch pluto.scss:pluto.css
+
+
+//////////////////////////////
+// planet banner / header
+
+
+.banner {    // div.banner
+  color: white;
+  background-color: black;
+  font-size: 12px;
+  padding: 6px 6px 4px 8px;  // top right bottom left
+  margin: 0 0 8px 0; // top right bottom left
+
+  a {
+    text-decoration: none;
+    color: white;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+}
+
+
+////////////////////////////////
+// version footer / powered_by
+
+.version     // div.version
+{
+   text-align: center;
+   margin-top: 10px;
+   color: grey;
+   font-size: 12px;
+   
+   a {
+     color: grey
+   }
+}
+
+
+
+//////////////////////////////////
+// cleanup
+
+//// eg.
+//  <div class="feedflare"> - in use by RubyFlow
+// - auto-added by FeedBurner service??
+
+
+.feedflare { display: none; }
+
+///// e.g.
+// <div class='mf-viral'>- in use by New York Times Feeds etc.
+//   auto-added by Mediafed / feedsportal.com service
+
+.mf-viral { display: none; }
+
+
+//// e.g.
+// <div id="mc_embed_signup> - in use by Phusion News Blog
+//
+
+#mc_embed_signup { display: none; }
+
+
+
+////////////////
+//  todo/fix:
+//  remove bugs e.g. images w/ widht=1 height=1 e.g.
+// <img src="http://feeds.feedburner.com/~r/Rubyflow/~4/CBMk7oHMglM"
+//     height="1" width="1"/>
+//  or
+//
+//
+//  todo/fix:
+//  strip patterns too e.g.
+//    Phusion News Blog
+// >  <p>If you would like to stay up to date with Phusion news,
+// >   please fill in your name and email address below
+// > and sign up for our newsletter. We won’t spam you, we promise.</p>
+// > <p></p>
+//
+//   no div class found to hide.
+
