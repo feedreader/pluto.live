@@ -24,5 +24,11 @@
 .mf-viral {
   display: none; }
 
+a[href~="feedsportal"] {
+  display: none; }
+
+img[scr~="feedsportal"] {
+  display: none; }
+
 #mc_embed_signup {
   display: none; }

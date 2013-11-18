@@ -57,6 +57,17 @@
 
 .mf-viral { display: none; }
 
+///////// e.g.
+//
+// <a href="http://da.feedsportal.com/r/180264478728/u/0/f/640387/c/34625/s/33cb899e/a2.htm">
+// <img border="0" src="http://da.feedsportal.com/r/180264478728/u/0/f/640387/c/34625/s/33cb899e/a2.img">
+//
+//  in use by New York Times Feeds for inline ads
+
+a[href~="feedsportal"]  { display: none; }
+img[scr~="feedsportal"]  { display: none; }
+
+
 
 //// e.g.
 // <div id="mc_embed_signup> - in use by Phusion News Blog
