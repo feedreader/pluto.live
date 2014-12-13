@@ -2,15 +2,17 @@ source 'https://rubygems.org'
 
 gem 'sinatra', :require => 'sinatra/base'
 
+gem 'pluto-models'
+gem 'pluto-update'
+gem 'pluto-tasks'
+
 gem 'pluto'
-gem 'pluto-admin'
+gem 'pluto-admin'  ## todo/fix: update admin - require pluto-models etc.
 
 
 gem 'about'      # mountable app - about - sys info pages
 gem 'dbbrowser'  # mountable app
 
-
-gem 'activerecord', '~>3.2.14'    ## fix: remove version
 
 group :production do
   gem 'pg'
