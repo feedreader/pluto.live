@@ -6,8 +6,8 @@ gem 'pluto-models'
 gem 'pluto-update'
 gem 'pluto-tasks'
 
-gem 'pluto'
-gem 'pluto-admin'  ## todo/fix: update admin - require pluto-models etc.
+
+gem 'pluto-admin'
 
 
 gem 'about'      # mountable app - about - sys info pages

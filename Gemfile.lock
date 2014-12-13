@@ -32,7 +32,6 @@ GEM
       logutils (>= 0.5)
     fetcher (0.4.4)
       logutils (>= 0.6)
-    gli (2.12.2)
     i18n (0.6.11)
     json (1.8.1)
     logutils (0.6.1)
@@ -45,15 +44,9 @@ GEM
       logutils (>= 0.6.0)
     pg (0.17.1)
     pg (0.17.1-x86-mingw32)
-    pluto (1.1.0)
-      gli (>= 2.12.2)
-      pluto-merge (>= 1.1.0)
-      pluto-models (>= 1.2.2)
-      pluto-tasks (>= 1.1.0)
-      pluto-update (>= 1.1.0)
-      sqlite3
-    pluto-admin (0.3.3)
-      logutils (>= 0.5)
+    pluto-admin (0.4.0)
+      logutils (>= 0.6.1)
+      pluto-models (>= 1.2.3)
     pluto-merge (1.1.0)
       fetcher (>= 0.4.4)
       pakman (>= 0.5.0)
@@ -111,7 +104,6 @@ DEPENDENCIES
   about
   dbbrowser
   pg
-  pluto
   pluto-admin
   pluto-models
   pluto-tasks
