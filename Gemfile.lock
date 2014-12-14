@@ -65,7 +65,7 @@ GEM
       pluto-merge
       pluto-models (>= 1.2.2)
       pluto-update
-    pluto-update (1.1.1)
+    pluto-update (1.1.2)
       fetcher (>= 0.4.4)
       pluto-models (>= 1.2.2)
     props (1.1.2)
