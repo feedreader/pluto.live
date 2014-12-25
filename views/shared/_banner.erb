@@ -1,10 +1,27 @@
 
 <div class='banner'>
+<table cellspacing='0' cellpadding='0' width='100%'>
+ <tr>
+   <td>
+<!-- left/1st column -->
 Planets | 
 <% Site.order(:id).each_with_index do |site,index| %>
    <% if index > 0 %>
-     &bull;
+      •
    <% end %>
    <%= link_to site.title, site_path( site ) %>
 <% end %>
+  </td>
+  <td style='text-align:right; font-size: 12px;'>
+    <!-- right/2nd column -->
+     Styles  | 
+    <%= link_to 'Standard', '?style=std' %> • 
+    <%= link_to 'Cards', '?style=cards' %> • 
+    <%= link_to 'News', '?style=news' %> • 
+    <%= link_to 'Hacker', '?style=hacker' %> • 
+    <%= link_to 'Digest', '?style=digest' %>  • 
+    <%= link_to 'Top', '?style=top' %>
+</td>
+ </tr>
+</table>
 </div>

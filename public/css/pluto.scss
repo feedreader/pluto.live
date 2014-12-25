@@ -5,14 +5,25 @@
 //////////////////////////////
 // planet banner / header
 
+//
+// todo: fix: make sure a gets style by banner rules
+//  e.g. check top layout (not working properly for now)
+//
+// todo: use scss - remove css - why? why not???
+
 
 .banner {    // div.banner
   color: white;
   background-color: #333333;  // black-ish
-  font-size: 12px;
+  font-size: 14px;
   padding: 6px 6px 4px 8px;  // top right bottom left
   margin: 0 0 8px 0; // top right bottom left
 
+  td {
+    color: white;  
+  }
+  
+  td a,
   a {
     text-decoration: none;
     color: white;

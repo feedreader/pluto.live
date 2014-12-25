@@ -1,13 +1,17 @@
 .banner {
   color: white;
   background-color: #333333;
-  font-size: 12px;
+  font-size: 14px;
   padding: 6px 6px 4px 8px;
   margin: 0 0 8px 0; }
-  .banner a {
+  .banner td {
+    color: white; }
+  .banner a,
+  .banner td a {
     text-decoration: none;
     color: white; }
-    .banner a:hover {
+    .banner a:hover,
+    .banner td a:hover {
       text-decoration: underline; }
 
 .version {
