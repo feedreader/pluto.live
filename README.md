@@ -10,8 +10,7 @@ Sinatra starter web app.
 
 ## Live Demos
 
-See the [Planet Ruby](http://plutolive.herokuapp.com)
-or the [Planet vienna.rb](http://viennarb.herokuapp.com) running on Heroku.
+See the [Planetarium](https://github.com/feedreader/planets) for live planets (running on Heroku).
 
 
 ## License
@@ -23,3 +22,4 @@ Use it as you please with no restrictions whatsoever.
 
 Send them along to the [Planet Pluto and Friends Forum/Mailing List](http://groups.google.com/group/feedreader).
 Thanks!
+

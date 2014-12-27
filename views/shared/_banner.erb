@@ -9,7 +9,10 @@ Planets |
    <% if index > 0 %>
       •
    <% end %>
-   <%= link_to site.title, site_path( site ) %>
+   <!-- cut of starting Planet in title -->
+   <%= link_to site.title.sub( /^Planet /, '' ), site_path( site ) %>
+      •
+   <%= link_to 'Make Your Own', 'http://feedreader.github.io' %>
 <% end %>
   </td>
   <td style='text-align:right; font-size: 12px;'>
@@ -20,8 +23,10 @@ Planets |
     <%= link_to 'News', '?style=news' %> • 
     <%= link_to 'Hacker', '?style=hacker' %> • 
     <%= link_to 'Digest', '?style=digest' %>  • 
-    <%= link_to 'Top', '?style=top' %>
+    <%= link_to 'Top', '?style=top' %> •
+    <%= link_to 'Do-It-Yourself', 'http://planet-templates.github.io' %>
 </td>
  </tr>
 </table>
 </div>
+
