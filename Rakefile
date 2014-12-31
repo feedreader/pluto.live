@@ -5,9 +5,12 @@ require File.expand_path('../config/application', __FILE__)
 
 Rails.application.load_tasks
 
+
+
 ####
-## add pluto tasks
+# add pluto tasks
 
-
-Pluto.load_tasks
+namespace :pluto do
+  Pluto.load_tasks
+end
 
