@@ -1,5 +1,4 @@
 
-
 class Planet < Sinatra::Base
 
   #######################
@@ -14,36 +13,7 @@ class Planet < Sinatra::Base
   include TextUtils::DateHelper
 
   def path_prefix
-    request.script_name   # request.env['SCRIPT_NAME']
-  end
-
-  def site_path( site, opts={} )
-    ## fix: reuse opts to attribs func
-    if opts.empty?
-      "#{path_prefix}/#{site.key}"
-    else
-      buf = "#{path_prefix}/#{site.key}?"
-      opts.each_with_index do |(key, value), index|
-        buf << '&' if index > 0
-        buf << "#{key}=#{value}"
-      end
-      buf
-    end
-  end
-
-  def root_path( opts={} )
-    # note: convert opts to query params e.g ?style=iii
-
-    if opts.empty?
-      "#{path_prefix}/"
-    else
-      buf = "#{path_prefix}/?"
-      opts.each_with_index do |(key, value), index|
-        buf << '&' if index > 0
-        buf << "#{key}=#{value}"
-      end
-      buf
-    end
+    request.script_name # request.env['SCRIPT_NAME']
   end
 
   ##############################################
@@ -52,17 +22,6 @@ class Planet < Sinatra::Base
   get '/favicon.ico' do
     404  # return 404 not found - sorry - no favicon.ico - we use favicon.png
   end
-
-=begin
-  # todo - use double routes w/ next and redirect - easier? cleaner? why? why not??
-  get '/:key?' do
-    if params[:style]
-      next
-    else
-      redirect "#{path_prefix}/ # -- request_uri ?? plus add style query param -- how?? 
-    end
-  end
-=end
 
 
   get '/:key?' do
@@ -76,10 +35,6 @@ class Planet < Sinatra::Base
     #  -- helps w/ bookmarking and hopefully avoids confusion w/ users
     # -- add ?style='random' - to make it clear style is random for user
     if style.nil?
- 
-      ## todo/fix: use redirect "#{path_prefix}+ #{request_uri} ?? plus add style query param -
-      ##   -easier/cleaner (make it on line)-  how?? - why? why not??
-
       if key.nil?
         redirect "#{path_prefix}/?style=random"  # default style is random
       else

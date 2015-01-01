@@ -10,7 +10,7 @@ Planets |
       •
    <% end %>
    <!-- cut of starting Planet in title -->
-   <%= link_to site.title.sub( /^Planet /, '' ), site_path( site ) %>
+   <%= link_to site.title.sub( /^Planet /, '' ), "/#{site.key}" %>
 <% end %>
 <!--
     •

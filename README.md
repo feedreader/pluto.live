@@ -1,6 +1,6 @@
 # pluto.live
 
-Example planet site - a Sinatra web app in Ruby
+Example planet site - a Rails web app in Ruby
 using the [pluto gem](https://github.com/feedreader/pluto).
 
 Note: For getting started with a planet site - see

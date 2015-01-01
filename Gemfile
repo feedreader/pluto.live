@@ -24,16 +24,15 @@ gem 'dbbrowser'  # mountable app
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
 
-###  todo/check - needed for rails?  - not used by pluto itself
-# Use jquery as the JavaScript library
-gem 'jquery-rails'
-
 
 
 group :production do
   gem 'pg'
   gem 'thin'    # use faster multiplexed (w/ eventmachine) web server  - use unicorn?? why? why not? 
+
+  gem 'rails_12factor'   ## add for heroku install
 end
+
 
 group :development, :test do
   # Use sqlite3 as the database for Active Record

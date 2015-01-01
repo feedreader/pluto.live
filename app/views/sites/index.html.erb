@@ -1,0 +1,15 @@
+
+<h2>
+<%= Site.count %> Sites
+</h2>
+
+
+<% Site.order(:id).each do |site| %>
+
+<h3>
+  <em><%= site.key %></em>
+  <%= site.title %>
+</h3>
+
+<% end %>
+
