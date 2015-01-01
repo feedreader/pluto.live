@@ -24,6 +24,7 @@ gem 'dbbrowser'  # mountable app
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
 
+gem 'uglifier'   ## add for heroku - required for assets:precompile
 
 
 group :production do
