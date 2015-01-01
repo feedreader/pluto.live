@@ -94,9 +94,9 @@ GEM
       props (>= 1.1.2)
       props-activerecord (>= 0.1.0)
       textutils (>= 0.10.0)
-    pluto-tasks (1.2.0)
-      pluto-models (>= 1.3.1)
-      pluto-update
+    pluto-tasks (1.3.0)
+      pluto-models (>= 1.3.2)
+      pluto-update (>= 1.3.0)
     pluto-update (1.3.0)
       fetcher (>= 0.4.4)
       pluto-models (>= 1.2.2)
