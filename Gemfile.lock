@@ -53,6 +53,7 @@ GEM
     debug_inspector (0.0.2)
     erubis (2.7.0)
     eventmachine (1.0.4)
+    execjs (2.2.2)
     feedutils (0.5.0)
       logutils (>= 0.6.1)
     fetcher (0.4.4)
@@ -171,6 +172,9 @@ GEM
     tilt (1.4.1)
     tzinfo (1.2.2)
       thread_safe (~> 0.1)
+    uglifier (2.6.1)
+      execjs (>= 0.3.0)
+      json (>= 1.8.0)
     web-console (2.0.0)
       activemodel (~> 4.0)
       binding_of_caller (>= 0.7.2)
@@ -194,4 +198,5 @@ DEPENDENCIES
   sinatra
   sqlite3
   thin
+  uglifier
   web-console (~> 2.0)
