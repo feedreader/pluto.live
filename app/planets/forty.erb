@@ -1,0 +1,50 @@
+
+
+<h1 class='site-title'><%= site.title %></h1>
+
+
+
+<div class='timeline'>
+
+
+<% site.items.latest.limit(24).each do |item| %>
+
+<article class='item'>
+
+  <div class='item-header'>
+   <span class='feed-title'>
+     <%= link_to item.feed.title, item.feed.url %>
+   </span>
+   <span class='feed-handle'> 
+    <%= link_to "@#{item.feed.key}", item.feed.url %>
+   </span>
+   <span class='item-timestamp'>
+     <%= item.published.strftime('%B %e, %Y - %H:%M') %> • 
+     <%= time_ago_in_words( item.published ) %>
+   </span>
+  </div>
+
+
+  <div class='item-body'>
+    <span class='item-title'>
+      <%= link_to item.title, item.url %>
+    </span>
+    <span>•</span> 
+    <span class='item-content'>
+<!-- use 'smarter' algorithm for cutoff snippet text
+   note: summary goes first; than try content -->
+<% if item.summary %>
+  <%= strip_tags(textify( item.summary ))[0..140] %>
+<% elsif item.content %>
+  <%= strip_tags(textify( item.content ))[0..140] %>
+<% else %>
+  -/-
+<% end %>
+     </span>
+   </div>
+
+</article><!-- item -->
+
+<% end %><!-- each item -->
+
+</div>

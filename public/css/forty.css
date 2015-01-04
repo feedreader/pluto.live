@@ -1,0 +1,34 @@
+body {
+  font-family: Helvetica, sans-serif;
+  color: black; }
+
+a {
+  text-decoration: none;
+  color: black; }
+  a:visited {
+    text-decoration: none;
+    color: black; }
+  a:hover {
+    text-decoration: underline;
+    color: black; }
+
+.site-title {
+  text-align: center; }
+
+.timeline {
+  width: 600px;
+  margin: 0px auto; }
+  .timeline .item {
+    width: 560px;
+    padding: 10px;
+    border: 1px solid #e1e8ed; }
+    .timeline .item .item-header .feed-title {
+      font-weight: bold; }
+    .timeline .item .item-header .feed-handle,
+    .timeline .item .item-header .item-timestamp {
+      font-size: 80%;
+      color: grey; }
+    .timeline .item .item-body .item-body {
+      color: #222222; }
+
+/*# sourceMappingURL=forty.css.map */

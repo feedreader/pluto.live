@@ -34,7 +34,7 @@ class PlanetController < ApplicationController
     if ['random', 'rnd', 'r', 'lucky', 'luck', 'shuffle' ].include?( style )
       # random style - throw the dice for surprise
       # note: zero based e.g. 0,1,2,3,4,5 for array inden
-      style_lottery = ['std','cards','news','top','hacker','digest']
+      style_lottery = ['std','cards','news','top','hacker','digest', 'paper', 'forty']
       style = style_lottery[ rand( style_lottery.size ) ]
     end
 
@@ -48,6 +48,10 @@ class PlanetController < ApplicationController
         tmpl    = :'hacker'
       elsif ['digest','d','vi','6'].include?( style )
         tmpl    = :'digest'
+      elsif ['paper','p','vii','7'].include?( style )
+        tmpl    = :'paper'
+      elsif ['forty','f','viii','8'].include?( style )
+        tmpl    = :'forty'
       else   ### if ['blank','std','b','1','i'].include?( style )
         tmpl    = :'blank'
       end

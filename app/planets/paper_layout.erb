@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+  <head>
+   <meta charset='utf-8'>
+   <meta name='generator' content='<%= Pluto.generator %>'>
+   <title><%= site.title %></title>
+
+   <%= stylesheet_link_tag 'css/paper' %>
+   <%= stylesheet_link_tag 'css/pluto' %> <!-- shared css for all; multi site -->
+
+   <link rel='icon'       href='i/favicon.png'   type='image/png'>
+  </head>
+<body style='margin: 0;'>
+
+<!-- add top level banner for planets -->
+<%= erb :'shared/_banner' %>
+
+<!-- wrap in container -->
+<div style='margin: 6px;'>
+<%= yield %>
+</div>
+
+<%= erb :'shared/_version' %>
+
+</body>
+</html>
+
