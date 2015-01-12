@@ -1,0 +1,71 @@
+
+<style>
+  .count {
+     font-size: 70%;
+    /* color: grey; */
+  }
+  .link {
+     font-size: 80%;
+  }
+  .feed {
+     font-size: 80%;
+  }
+  
+  a {
+    text-decoration: none;
+    color: black;
+  }
+  a:visited {
+    color: grey;
+  }
+  a:hover {
+    text-decoration: underline;
+  }
+
+</style>
+
+<h2>
+ Sources <span class='count'>(<%= Feed.count %>)</span>
+</h2>
+
+
+<!--
+  change  https://raw.github.com/feedreader/planet-ruby/master/ruby.ini
+  to      https://github.com/feedreader/planet-ruby/blob/master/ruby.ini
+-->
+
+
+<% Site.order(:id).each do |site| %>
+
+<h3>
+  <%= site.title %> <span class='count'>(<%= site.feeds.count %>)</span>
+
+  <%= link_to '[Edit Me!]', site.url.sub( 'raw.github.com', 'github.com' ).sub( 'master', 'blob/master' ) %>
+</h3>
+
+
+<table width='100%'>
+<% site.feeds.order( 'title' ).each do |feed| %>
+<tr>
+  <td width='40%'>
+       <%= feed.title %>
+  </td>
+  <td width='30%'>
+        <code class='link'>
+          <%= link_to feed.url.sub( %r{http(s)?://},'' ), feed.url %>
+        </code>
+        <span>
+           <%= link_to( image_tag('/i/feed-icon-10x10.png'), feed.feed_url ) %>
+        </span>
+  </td>
+  <td width='30%'>
+     <% if feed.github %>
+       <code class='link'><%= link_to "@#{feed.github}", "http://github.com/#{feed.github}" %></code>
+     <% end %>
+  </td>
+</tr>
+<% end %>
+</table>
+
+<% end %>
+
