@@ -26,6 +26,7 @@
 
 <h2>
  Sources <span class='count'>(<%= Feed.count %>)</span>
+   <%= link_to image_tag('/i/opml-icon-16x16.png'), opml_path( key:'all' ) %>
 </h2>
 
 
@@ -39,6 +40,8 @@
 
 <h3>
   <%= site.title %> <span class='count'>(<%= site.feeds.count %>)</span>
+
+  <%= link_to image_tag('/i/opml-icon-16x16.png'), opml_path( key: site.key ) %>
 
   <%= link_to '[Edit Me!]', site.url.sub( 'raw.github.com', 'github.com' ).sub( 'master', 'blob/master' ) %>
 </h3>

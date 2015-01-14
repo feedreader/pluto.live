@@ -8,7 +8,11 @@ Rails.application.routes.draw do
   mount PlutoAdmin::Server, at: '/db'   ## note: requires => require 'pluto/admin/server'
 
 
-  resources :sources  # for all sources w/ feeds and opml (feed list) etc.
+  ## Note: needs to turn off (magic/builtin optional) (.:format) pattern/match - e.g. use format:false
+  #  Note:  dot (.) is a segment separator by default in rails routes
+  get '/:key.opml'  => 'sources#opml', format: false, as: 'opml'
+
+  resources :sources
   resources :sites  # for debugging/browsing sites in rails
 
   get '/:key' => 'planet#index', as: 'planet'
