@@ -12,11 +12,15 @@ Rails.application.routes.draw do
   #  Note:  dot (.) is a segment separator by default in rails routes
   get '/:key.opml'  => 'sources#opml', format: false, as: 'opml'
 
+
+  get '/time'  => 'timeline#index', as: 'timeline'
+  get '/front' => 'frontpage#index', as: 'frontpage'
+
   resources :sources
   resources :sites  # for debugging/browsing sites in rails
 
   get '/:key' => 'planet#index', as: 'planet'
-  root 'planet#index'
+  root 'frontpage#index'
 
 end
 

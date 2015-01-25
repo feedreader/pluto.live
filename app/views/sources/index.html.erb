@@ -43,7 +43,7 @@
 
   <%= link_to image_tag('/i/opml-icon-16x16.png'), opml_path( key: site.key ) %>
 
-  <%= link_to '[Edit Me!]', site.url.sub( 'raw.github.com', 'github.com' ).sub( 'master', 'blob/master' ) %>
+  <%= link_to '[Edit Me!]', site.url.sub( 'raw.github.com', 'github.com' ).sub('gh-pages', 'blob/gh-pages').sub( 'master', 'blob/master' ) %>
 </h3>
 
 

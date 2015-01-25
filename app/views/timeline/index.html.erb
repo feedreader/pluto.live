@@ -1,0 +1,74 @@
+
+<!-- todo/check:
+   use published or updated for date?
+  -->
+
+<style>
+  body {
+    font-family: sans-serif;
+    font-size:   12px;
+    color: #333333;
+  }
+
+  h1 { font-size: 16px; }
+  h2 { font-size: 14px; }
+  
+  .feed-title a,
+  .item-title a {
+    font-weight: bold;
+    text-decoration: none;
+    color: black;
+  }
+
+  .feed-title a:hover,
+  .item-title a:hover {
+    text-decoration: underline;
+    background-color: aqua;
+  }
+
+  .item-title a:visited {
+    color: grey;
+  }
+
+</style>
+
+
+<h1>Timeline</h1>
+
+<%
+   items = Item.latest.limit(33)
+   ItemCursor.new( items ).each do |item, new_date, new_feed|
+%>
+
+<% if new_date %>
+ <h2><%= item.updated.strftime('%A, %d %B %Y') %></h2>
+<% end %>
+
+<article class='item'>
+   <span class='item-timestamp'>
+      <%= item.updated.strftime('%H:%M') %> •
+   </span>
+
+   <span class='feed-title'>
+     <%= link_to item.feed.title, item.feed.url %>
+   </span>
+      /
+    <span class='item-title'>
+      <%= link_to item.title, item.url %>
+    </span>
+    <span>•</span> 
+    <span class='item-content'>
+<!-- use 'smarter' algorithm for cutoff snippet text
+   note: summary goes first; than try content -->
+<% if item.summary %>
+  <%= strip_tags(textify( item.summary ))[0..200] %>
+<% elsif item.content %>
+  <%= strip_tags(textify( item.content ))[0..200] %>
+<% else %>
+  -/-
+<% end %>
+     </span>
+
+</article><!-- item -->
+
+<% end %>
